@@ -10,6 +10,12 @@
 	ldi r19, @1
 	rcall writeRegister
 .ENDMACRO
+.MACRO WRITESTRING
+	ldi r18, @1
+	ldi ZH, high(@0*2)
+	ldi ZL, low(@0*2)
+	rcall stringOut
+.ENDMACRO
 ldi r16,23 ; Pin 4 as output for reset
 out DDRB, r16 ; SS*, SCK, MOSI outputs 
 ldi r16, 0b010111001 ; set SPR0, CPHA, CPOL, MSTR, SPE (Interupts [7] disabled)
@@ -17,6 +23,7 @@ out SPCR, r16
 
 	rcall initLCD
 	rcall test
+	WRITESTRING hello,11
 main:
 	nop
 	rjmp main
@@ -29,6 +36,7 @@ test:
 	ldi ZL, low(hello*2)
 	ldi r18, 11
 	rcall stringOut
+	ret
 
 initLCD:
 	in r16, PORTB
