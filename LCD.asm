@@ -16,12 +16,43 @@
 	ldi ZL, low(@0*2)
 	rcall stringOut
 .ENDMACRO
-ldi r16,23 ; Pin 4 as output for reset
-out DDRB, r16 ; SS*, SCK, MOSI outputs 
-ldi r16, 0b010111001 ; set SPR0, CPHA, CPOL, MSTR, SPE (Interupts [7] disabled)
-out SPCR, r16
+rjmp Init
 
+Init: 
+   
+;##### Stack Pointer Setup Code #####
+
+	ldi r16, $0F		; Stack Pointer Setup to 0x0FFF
+	out SPH,r16			; Stack Pointer High Byte 
+	ldi r16, $FF		; Stack Pointer Setup 
+	out SPL,r16			; Stack Pointer Low Byte 
+   
+;###### RAMPZ Setup Code #####
+
+;	lower memory page arithmetic
+	ldi  r16, $00		; 1 = EPLM acts on upper 64K
+	out RAMPZ, r16		; 0 = EPLM acts on lower 64K
+   
+;###### Sleep Mode And SRAM #####
+
+;	Tell it we want read and write activity on RE WR
+/*	ldi r16, $C0		; Idle Mode - SE bit in MCUCR not set
+	out MCUCR, r16	*/	; External SRAM Enable Wait State Enabled
+   
+;##### Comparator Setup Code #####
+	;CHECKME
+	ldi r16,$80			; Comparator Disabled, Input Capture Disabled 
+	out ACSR, r16		; Comparator Settings
+
+ldi r16,0b00010111 ; Pin 4 as output for reset
+out DDRB, r16 ; SS*, SCK, MOSI outputs
+ldi r16, 0
+out PORTB, r16
+ldi r16, 0b01011110 ; set SPR0, CPHA, CPOL, MSTR, SPE (Interupts [7] disabled)
+out SPCR, r16
+aq:
 	rcall initLCD
+
 	rcall test
 	WRITESTRING hello,11
 main:
@@ -42,15 +73,15 @@ initLCD:
 	in r16, PORTB
 	andi r16, 0b11101111 ; reset low
 	out PORTB, r16
-	; 1ms delay
+	rcall DEL1ms
 	ori r16, 0b00010000 ; reset high
-	; 10ms delay
+	rcall Del10ms
 
 	; PLL settings
 	REGISTER $88, $0B
-	; 1ms delay
+	rcall DEL1ms
 	REGISTER $89, $02
-	; 1ms delay
+	rcall DEL1ms
 
 	; 8bit, 256 color
 	REGISTER $10, $00
@@ -61,7 +92,7 @@ initLCD:
 	;;;;;;;;;;;;;;;;;;;;;;;;;
 
 	REGISTER $04, $81
-	; 1ms delay
+	rcall DEL1ms
 	REGISTER $14, $63
 	REGISTER $15, 0
 	REGISTER $16, $03
@@ -88,7 +119,10 @@ initLCD:
 	REGISTER $8A, $8A
 	REGISTER $8B, $55 ; PWM Duty Cycle
 	; LCD ON
-	;REGISTER $01, $80
+	REGISTER $01, $80
+	ldi r19, $00
+	ldi r20, $01
+	rcall readRegister
 	ret
 
 
@@ -197,7 +231,9 @@ readData:
 	ldi r16, $40
 	out SPDR, r16
 	rcall waitTransmit
-	sbi SPSR, SPIF
+	;sbi SPSR, SPIF
+	ldi r16, $00
+	out SPDR, r16
 	rcall waitTransmit
 	in r19, SPDR
 	ret
@@ -220,17 +256,42 @@ waitTransmit:
 	ret
 
 endPacket:
-	ldi r16, (1<<0)
+	ldi r16, 1
 	out PORTB, r16 ; End packet
 	nop nop nop nop
 	nop nop nop nop
 	ret
 
 startPacket:
-	ldi r16, (0<<0)
+	ldi r16, 0
 	out PORTB, r16 ; Start packet
 	nop nop nop nop
 	nop nop nop nop
 	ret
 
 
+
+DEL1ms:
+		push r26
+		push r27
+        ldi XH, HIGH(1330)
+        ldi XL, LOW (1330)
+COUNT1:
+        sbiw XL, 1
+        brne COUNT1
+		pop r27
+		pop r26
+        ret 
+
+Del10ms:
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		rcall DEL1ms
+		ret
