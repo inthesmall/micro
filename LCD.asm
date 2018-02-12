@@ -52,17 +52,20 @@ ldi r16, 0b01011110 ; set SPR0, CPHA, CPOL, MSTR, SPE (Interupts [7] disabled)
 out SPCR, r16
 aq:
 	rcall initLCD
-
-	rcall test
-	WRITESTRING hello,11
+	;REGISTER $22, 0
+	;REGISTER $52, 0b00000000
+	;rcall clrLCD
+	rcall stringTest
+	;WRITESTRING hello,11
 main:
-	nop
+	rcall stringTest
 	rjmp main
 	
 	
 hello:
 	.db "Hello world"
 test:
+	rcall clrLCD
 	ldi ZH, high(hello*2)
 	ldi ZL, low(hello*2)
 	ldi r18, 11
@@ -70,13 +73,15 @@ test:
 	ret
 
 initLCD:
-	in r16, PORTB
-	andi r16, 0b11101111 ; reset low
+	/*in r16, PORTB
+	andi r16, 0b11101111 ; reset low*/
+	ldi r16, 0
 	out PORTB, r16
 	rcall DEL1ms
-	ori r16, 0b00010000 ; reset high
+	;ori r16, 0b00010000 ; reset high
+	ldi r16, 0b00010000
+	out PORTB, r16
 	rcall Del10ms
-
 	; PLL settings
 	REGISTER $88, $0B
 	rcall DEL1ms
@@ -115,14 +120,14 @@ initLCD:
 	REGISTER $33, $00
 	REGISTER $36, $DF
 	REGISTER $37, $01
-
+	;rcall clrLCD
+	
 	REGISTER $8A, $8A
-	REGISTER $8B, $55 ; PWM Duty Cycle
+	REGISTER $8B, $FF ; PWM Duty Cycle
 	; LCD ON
 	REGISTER $01, $80
-	ldi r19, $00
-	ldi r20, $01
-	rcall readRegister
+	ldi r19, 5
+	rcall readStatus
 	ret
 
 
@@ -135,16 +140,17 @@ stringOut:
 	/*ldi r20, $21
 	ldi r19, (0<<7)|(0<<5)
 	rcall writeRegister*/
-	REGISTER $21, $A0
-	;ldi r19, $FF ; Background color
-	;ldi r20, $60
-	;rcall writeRegister
-	REGISTER $60, $FF
+	REGISTER $2F, $00
+	REGISTER $21, $20
+	ldi r19, $FF ; Background color
+	ldi r20, $60
+	rcall writeRegister
+	;REGISTER $60, $FF
 	inc r20
 	rcall writeRegister
 	inc r20
 	rcall writeRegister
-	ldi r19, 0 ; Foreground color
+	ldi r19, $00 ; Foreground color
 	inc r20
 	rcall writeRegister
 	inc r20
@@ -169,10 +175,11 @@ stringEnd:
 clrLCD:
 	ldi r20, $8E
 	rcall readRegister
-	cbr r19, 6
-	rcall startPacket
+	sbr r19, 6
+	REGISTER $8E, (0<<6)
+/*	rcall startPacket
 	rcall writeData
-	rcall endPacket
+	rcall endPacket*/
 	ret
 
 
@@ -247,7 +254,18 @@ readRegister:
 	rcall endPacket
 	ret
 	
-
+readStatus:
+	rcall startPacket
+	ldi r16, 0b11000000
+	out SPDR, r16
+	rcall waitTransmit
+	;sbi SPSR, SPIF
+	ldi r16, $00
+	out SPDR, r16
+	rcall waitTransmit
+	in r19, SPDR
+	rcall endPacket
+	ret
 
 
 waitTransmit:
@@ -256,14 +274,14 @@ waitTransmit:
 	ret
 
 endPacket:
-	ldi r16, 1
+	ldi r16, 0b00010001
 	out PORTB, r16 ; End packet
 	nop nop nop nop
 	nop nop nop nop
 	ret
 
 startPacket:
-	ldi r16, 0
+	ldi r16, 0b00010000
 	out PORTB, r16 ; Start packet
 	nop nop nop nop
 	nop nop nop nop
@@ -295,3 +313,25 @@ Del10ms:
 		rcall DEL1ms
 		rcall DEL1ms
 		ret
+
+
+stringTest:
+	REGISTER $91, 0
+	REGISTER $92, 0
+	REGISTER $93, 0
+	REGISTER $94, 0
+	REGISTER $95, low(799)
+	REGISTER $96, 799>>8
+	REGISTER $97, low(479)
+	REGISTER $98, 479>>8
+	REGISTER $63, 7
+	REGISTER $64, 0
+	REGISTER $65, 0
+	;REGISTER $22, 0
+	REGISTER $90, $B0
+	ldi r20, $90
+testLoop:
+	rcall readRegister
+	sbrc r19, 7
+	rjmp testLoop
+	ret
