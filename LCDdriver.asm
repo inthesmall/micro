@@ -3,6 +3,12 @@
 	ldi r19, @1
 	rcall writeRegister
 .ENDMACRO
+.MACRO WRITESTRING
+	ldi r18, @1
+	ldi ZH, high(@0*2)
+	ldi ZL, low(@0*2)
+	rcall stringOut
+.ENDMACRO
 
 DEL1ms:
 		push r26
@@ -30,7 +36,7 @@ Del10ms:
 		ret
 
 clrLCD:
-	REGISTER $8E, (0<<6)
+	REGISTER $8E, $80
 	ret
 
 
@@ -188,43 +194,40 @@ charOut:
 	rcall writeCommand
 	rcall startPacket
 	rcall readData
+	rcall endPacket
+	rcall writeCommand
 	ori r19, $80
+	rcall startPacket
 	rcall writeData
 	rcall endPacket
 	ldi r20, $21
 	rcall writeCommand
 	rcall startPacket
 	rcall readData
+	rcall endPacket
 	cbr r19, 7
 	cbr r19, 5
+	rcall writeCommand
+	rcall startPacket
 	rcall writeData
 	rcall endPacket
-	ldi r19, $FF ; Background color
-	ldi r20, $60
-	rcall writeRegister
-	;REGISTER $60, $FF
-	inc r20
-	rcall writeRegister
-	inc r20
-	rcall writeRegister
-	ldi r19, $00 ; Foreground color
-	inc r20
-	rcall writeRegister
-	inc r20
-	rcall writeRegister
-	inc r20
-	rcall writeRegister
-
+	REGISTER $60, 0
+	REGISTER $61, 0
+	REGISTER $62, 0
+	REGISTER $63, 0
+	REGISTER $64, 7
+	REGISTER $65, 0
+	REGISTER $22, 0b00001011
 	;cursor
-	REGISTER $2A, $0A
-	REGISTER $2B, $00
-	REGISTER $2C, $0A
-	REGISTER $2D, $00
+	;REGISTER $2A, $00
+	;REGISTER $2B, $00
+	;REGISTER $2C, $00
+	;REGISTER $2D, $00
 	
 	ldi r20, $02
 	rcall writeCommand
 	rcall startPacket
-	mv r19, r18
+	mov r19, r18
 	rcall writeData
 	rcall endPacket
 	ret
