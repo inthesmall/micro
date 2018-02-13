@@ -1,15 +1,4 @@
-.MACRO REGISTER
-	ldi r20, @0
-	ldi r19, @1
-	rcall writeRegister
-.ENDMACRO
-.MACRO WRITESTRING
-	ldi r18, @1
-	ldi ZH, high(@0*2)
-	ldi ZL, low(@0*2)
-	rcall stringOut
-.ENDMACRO
-
+.INCLUDE "LCDdriver.inc"
 DEL1ms:
 		push r26
 		push r27
@@ -190,6 +179,28 @@ startPacket:
 
 ; Write char [r18] to screen
 charOut:
+	rcall initTextOut_
+	rcall startPacket
+	mov r19, r18
+	rcall writeData
+	rcall endPacket
+	ret
+
+stringOut:
+	rcall initTextOut_
+	rcall startPacket
+stringLoop_:
+	cpi r18, $00
+	breq stringEnd_
+	lpm r19, Z+
+	rcall writeData
+	dec r18
+	rjmp stringLoop_
+stringEnd_:
+	rcall endPacket
+	ret
+
+initTextOut_:
 	ldi r20, $40
 	rcall writeCommand
 	rcall startPacket
@@ -226,8 +237,4 @@ charOut:
 	
 	ldi r20, $02
 	rcall writeCommand
-	rcall startPacket
-	mov r19, r18
-	rcall writeData
-	rcall endPacket
 	ret
