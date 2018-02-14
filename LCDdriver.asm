@@ -180,6 +180,8 @@ startPacket:
 ; Write char [r18] to screen
 charOut:
 	rcall initTextOut_
+	ldi r20, $02
+	rcall writeCommand
 	rcall startPacket
 	mov r19, r18
 	rcall writeData
@@ -188,6 +190,8 @@ charOut:
 
 stringOut:
 	rcall initTextOut_
+	ldi r20, $02
+	rcall writeCommand
 	rcall startPacket
 stringLoop_:
 	cpi r18, $00
@@ -199,6 +203,49 @@ stringLoop_:
 stringEnd_:
 	rcall endPacket
 	ret
+
+cCharOut:
+	rcall initTextOut_
+		ldi r20, $21
+	rcall writeCommand
+	rcall startPacket
+	rcall readData
+	rcall endPacket
+	sbr r19, 7
+	rcall writeCommand
+	rcall startPacket
+	rcall writeData
+	rcall endPacket
+	ldi r20, $02
+	rcall writeCommand
+	rcall startPacket
+	mov r19, r18
+	rcall writeData
+	rcall endPacket
+	ret
+
+cStringOut:
+	rcall initTextOut_
+	ldi r20, $21
+	rcall writeCommand
+	rcall startPacket
+	rcall readData
+	rcall endPacket
+	sbr r19, 7
+	rcall writeCommand
+	rcall startPacket
+	rcall writeData
+	rcall endPacket
+	ldi r20, $02
+	rcall writeCommand
+	rcall startPacket
+cStringLoop_:
+	cpi r18, $00
+	breq stringEnd_
+	lpm r19, Z+
+	rcall writeData
+	dec r18
+	rjmp cStringLoop_
 
 initTextOut_:
 	ldi r20, $40
@@ -229,12 +276,23 @@ initTextOut_:
 	REGISTER $64, 7
 	REGISTER $65, 0
 	REGISTER $22, 0b00001011
+	REGISTER $41, 0
 	;cursor
 	;REGISTER $2A, $00
 	;REGISTER $2B, $00
 	;REGISTER $2C, $00
 	;REGISTER $2D, $00
-	
+	ret
+
+
+addChar:
+	REGISTER $40, 0
+	ldi r20, $23
+	rcall writeRegister
+	REGISTER $21, 0
+	REGISTER $41, 4
 	ldi r20, $02
 	rcall writeCommand
-	ret
+	ldi r18, 16
+	rcall startPacket
+	rcall stringLoop_
