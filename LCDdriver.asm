@@ -1,12 +1,14 @@
 .INCLUDE "LCDdriver.inc"
+#ifndef dels
+#define dels
 DEL1ms:
 		push r26
 		push r27
         ldi XH, HIGH(1330)
         ldi XL, LOW (1330)
-COUNT1:
+COUNT001:
         sbiw XL, 1
-        brne COUNT1
+        brne COUNT001
 		pop r27
 		pop r26
         ret 
@@ -23,7 +25,7 @@ Del10ms:
 		rcall DEL1ms
 		rcall DEL1ms
 		ret
-
+#endif
 clrLCD:
 	REGISTER $8E, $80
 	ret
