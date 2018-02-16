@@ -94,6 +94,7 @@ setupLCD:
 	; PWM Backlight
 	REGISTER $8A, $8A
 	REGISTER $8B, $FF
+	ret
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -240,7 +241,7 @@ cStringOut:
 	REGISTER $65, 0
 	REGISTER $21, 0b10100000
 	REGISTER $22, 0b00001011
-	ldi r20, $02
+/*	ldi r20, $02
 	rcall writeCommand
 	rcall startPacket
 	rcall readData
@@ -249,17 +250,24 @@ cStringOut:
 	rcall writeCommand
 	rcall startPacket
 	rcall writeData
-	rcall endPacket
+	rcall endPacket*/
 	ldi r20, $02
 	rcall writeCommand
 	rcall startPacket
+	ldi r19, 0
+	out SPDR, r19
+	rcall waitTransmit
 cStringLoop_:
 	cpi r18, $00
-	breq stringEnd_
+	breq cStringEnd_
 	lpm r19, Z+
-	rcall writeData
+	out SPDR, r19
+	rcall waitTransmit
 	dec r18
 	rjmp cStringLoop_
+cStringEnd_:
+	rcall endPacket
+	ret
 
 initTextOut_:
 	ldi r20, $40
@@ -272,7 +280,8 @@ initTextOut_:
 	rcall startPacket
 	rcall writeData
 	rcall endPacket
-	ldi r20, $21
+	REGISTER $21, $00
+/*	ldi r20, $21
 	rcall writeCommand
 	rcall startPacket
 	rcall readData
@@ -282,7 +291,7 @@ initTextOut_:
 	rcall writeCommand
 	rcall startPacket
 	rcall writeData
-	rcall endPacket
+	rcall endPacket*/
 	REGISTER $60, 0
 	REGISTER $61, 0
 	REGISTER $62, 0
