@@ -18,7 +18,7 @@
 	ldi r18, @0
 	rcall charOut
 .ENDMACRO
-; WRITECSTRING [0],[1] writes string [1] of length [0] using custom characters
+; WRITECSTRING [0],[1] writes string [0] of length [1] using custom characters
 .MACRO WRITECSTRING
 	ldi r18, @1
 	ldi ZH, high(@0*2)
