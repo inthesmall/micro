@@ -6,9 +6,9 @@
 	ldi r19, @1
 	rcall writeRegister
 .ENDMACRO
-; WRITESTRING [0],[1] writes string [1] of length [0]
+; WRITESTRING [0],[1] writes string [0] of length [1](reg)
 .MACRO WRITESTRING
-	ldi r18, @1
+	mov r18, @1
 	ldi ZH, high(@0*2)
 	ldi ZL, low(@0*2)
 	rcall stringOut
@@ -18,9 +18,9 @@
 	ldi r18, @0
 	rcall charOut
 .ENDMACRO
-; WRITECSTRING [0],[1] writes string [1] of length [0] using custom characters
+; WRITECSTRING [0],[1] writes string [0] of length [1](reg) using custom characters
 .MACRO WRITECSTRING
-	ldi r18, @1
+	mov r18, @1
 	ldi ZH, high(@0*2)
 	ldi ZL, low(@0*2)
 	rcall cStringOut
