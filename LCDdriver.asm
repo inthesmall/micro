@@ -193,11 +193,15 @@ stringOut:
 	ldi r20, $02
 	rcall writeCommand
 	rcall startPacket
+	ldi r16, 0
+	out SPDR, r16
+	rcall waitTransmit
 stringLoop_:
 	cpi r18, $00
 	breq stringEnd_
 	lpm r19, Z+
-	rcall writeData
+	out SPDR, r19
+	rcall waitTransmit
 	dec r18
 	rjmp stringLoop_
 stringEnd_:
@@ -205,17 +209,16 @@ stringEnd_:
 	ret
 
 cCharOut:
-	rcall initTextOut_
-		ldi r20, $21
-	rcall writeCommand
-	rcall startPacket
-	rcall readData
-	rcall endPacket
-	sbr r19, 7
-	rcall writeCommand
-	rcall startPacket
-	rcall writeData
-	rcall endPacket
+	REGISTER $40, $80
+	REGISTER $41, $00
+	REGISTER $60, 0
+	REGISTER $61, 0
+	REGISTER $62, 0
+	REGISTER $63, 0
+	REGISTER $64, 7
+	REGISTER $65, 0
+	REGISTER $21, 0b10100000
+	REGISTER $22, 0b00001011
 	ldi r20, $02
 	rcall writeCommand
 	rcall startPacket
@@ -224,9 +227,18 @@ cCharOut:
 	rcall endPacket
 	ret
 
-cStringOut:
-	rcall initTextOut_
-	ldi r20, $21
+/*cStringOut:
+	REGISTER $40, $80
+	REGISTER $41, $00
+	REGISTER $60, 0
+	REGISTER $61, 0
+	REGISTER $62, 0
+	REGISTER $63, 0
+	REGISTER $64, 7
+	REGISTER $65, 0
+	REGISTER $21, 0b10100000
+	REGISTER $22, 0b00001011
+	ldi r20, $02
 	rcall writeCommand
 	rcall startPacket
 	rcall readData
@@ -245,7 +257,7 @@ cStringLoop_:
 	lpm r19, Z+
 	rcall writeData
 	dec r18
-	rjmp cStringLoop_
+	rjmp cStringLoop_*/
 
 initTextOut_:
 	ldi r20, $40
@@ -277,6 +289,7 @@ initTextOut_:
 	REGISTER $65, 0
 	REGISTER $22, 0b00001011
 	REGISTER $41, 0
+	REGISTER $2E, 0
 	;cursor
 	;REGISTER $2A, $00
 	;REGISTER $2B, $00
@@ -286,13 +299,29 @@ initTextOut_:
 
 
 addChar:
+	push r19
+/*	ldi r20, $40
+	rcall writeCommand
+	rcall startPacket
+	rcall readData
+	rcall endPacket
+	rcall writeCommand
+	cbr r19, 7
+	rcall startPacket
+	rcall writeData
+	rcall endPacket*/
 	REGISTER $40, 0
-	ldi r20, $23
-	rcall writeRegister
 	REGISTER $21, 0
-	REGISTER $41, 4
+	REGISTER $41, 0b000000100
+	ldi r20, $23
+	pop r19
+	rcall writeRegister
 	ldi r20, $02
 	rcall writeCommand
 	ldi r18, 16
 	rcall startPacket
+	ldi r16, 0
+	out SPDR, r16
+	rcall waitTransmit
 	rcall stringLoop_
+	ret
