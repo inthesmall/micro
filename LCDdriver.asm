@@ -229,7 +229,7 @@ cCharOut:
 	rcall endPacket
 	ret
 
-/*cStringOut:
+cStringOut:
 	REGISTER $40, $80
 	REGISTER $41, $00
 	REGISTER $60, 0
@@ -259,7 +259,7 @@ cStringLoop_:
 	lpm r19, Z+
 	rcall writeData
 	dec r18
-	rjmp cStringLoop_*/
+	rjmp cStringLoop_
 
 initTextOut_:
 	ldi r20, $40
