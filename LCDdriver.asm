@@ -27,7 +27,21 @@ Del10ms:
 		ret
 #endif
 clrLCD:
+	push r20
+	push r19
+	push r18
 	REGISTER $8E, $80
+	ldi r20, $8E
+clrLCDLoop:
+	rcall writeCommand
+	rcall startPacket
+	rcall readData
+	rcall endPacket
+	sbrc r19, 7
+	rjmp clrLCDLoop
+	pop r18
+	pop r19
+	pop r20
 	ret
 
 
@@ -94,6 +108,8 @@ setupLCD:
 	; PWM Backlight
 	REGISTER $8A, $8A
 	REGISTER $8B, $FF
+
+	
 	ret
 
 
@@ -336,3 +352,4 @@ addChar:
 	rcall waitTransmit
 	rcall stringLoop_
 	ret
+

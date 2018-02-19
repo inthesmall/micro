@@ -1,0 +1,98 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.6</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\avrasm\inc\m128def.inc</FILE>
+  <FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\setup.asm</FILE>
+  <FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.inc</FILE>
+  <FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE>
+  <FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\buttons.asm</FILE>
+  <FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE>
+  <FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\Debug\spaceInvaders.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>spaceInvaders.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>spaceInvaders.map</FILE>
+  <FILE>spaceInvaders.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <Init><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\setup.asm</FILE><LINE>53</LINE></Init>
+  <interruptVector><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>48</LINE></interruptVector>
+  <setupLCD><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>49</LINE></setupLCD>
+  <clrLCD><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>29</LINE></clrLCD>
+  <Main><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>34</LINE></Main>
+  <initPpl><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>101</LINE></initPpl>
+  <retPt><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>37</LINE></retPt>
+  <menu><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>109</LINE></menu>
+  <modeSelect><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>118</LINE></modeSelect>
+  <foeLoop><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>130</LINE></foeLoop>
+  <deathScreen><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>122</LINE></deathScreen>
+  <buttonRead><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\buttons.asm</FILE><LINE>1</LINE></buttonRead>
+  <movLoop><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>65</LINE></movLoop>
+  <endP><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>61</LINE></endP>
+  <playerLoop><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>72</LINE></playerLoop>
+  <movLeft><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>82</LINE></movLeft>
+  <movRight><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>89</LINE></movRight>
+  <shoot><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>97</LINE></shoot>
+  <movLend><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>86</LINE></movLend>
+  <movRend><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>93</LINE></movRend>
+  <menu1><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>115</LINE></menu1>
+  <uDed><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm</FILE><LINE>14</LINE></uDed>
+  <stringOut><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>210</LINE></stringOut>
+  <run1><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>132</LINE></run1>
+  <screenUpdate><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>154</LINE></screenUpdate>
+  <reverse><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>142</LINE></reverse>
+  <writeRegister><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>119</LINE></writeRegister>
+  <lo><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm</FILE><LINE>1</LINE></lo>
+  <foe><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm</FILE><LINE>7</LINE></foe>
+  <cStringOut><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>249</LINE></cStringOut>
+  <ro><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm</FILE><LINE>4</LINE></ro>
+  <esc><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>181</LINE></esc>
+  <writePlayer><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>192</LINE></writePlayer>
+  <BigDel><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>49</LINE></BigDel>
+  <writeBlnkRow><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm</FILE><LINE>188</LINE></writeBlnkRow>
+  <blnkRow><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm</FILE><LINE>10</LINE></blnkRow>
+  <cCharOut><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>230</LINE></cCharOut>
+  <DEL15ms><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>2</LINE></DEL15ms>
+  <COUNT><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>6</LINE></COUNT>
+  <DEL4P1ms><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>13</LINE></DEL4P1ms>
+  <COUNT1><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>18</LINE></COUNT1>
+  <DEL100mus><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>25</LINE></DEL100mus>
+  <COUNT2><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>30</LINE></COUNT2>
+  <DEL49ms><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>37</LINE></DEL49ms>
+  <COUNT3><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>42</LINE></COUNT3>
+  <BiglyDel><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm</FILE><LINE>59</LINE></BiglyDel>
+  <initE><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\buttons.asm</FILE><LINE>14</LINE></initE>
+  <DEL1ms><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>4</LINE></DEL1ms>
+  <COUNT001><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>9</LINE></COUNT001>
+  <Del10ms><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>16</LINE></Del10ms>
+  <clrLCDLoop><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>35</LINE></clrLCDLoop>
+  <writeCommand><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>127</LINE></writeCommand>
+  <startPacket><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>192</LINE></startPacket>
+  <readData><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>147</LINE></readData>
+  <endPacket><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>185</LINE></endPacket>
+  <writeData><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>138</LINE></writeData>
+  <waitTransmit><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>180</LINE></waitTransmit>
+  <readRegister><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>160</LINE></readRegister>
+  <readStatus><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>167</LINE></readStatus>
+  <charOut><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>200</LINE></charOut>
+  <initTextOut_><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>288</LINE></initTextOut_>
+  <stringLoop_><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>218</LINE></stringLoop_>
+  <stringEnd_><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>226</LINE></stringEnd_>
+  <cStringLoop_><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>276</LINE></cStringLoop_>
+  <cStringEnd_><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>284</LINE></cStringEnd_>
+  <addChar><FILE>\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm</FILE><LINE>328</LINE></addChar>
+ </LABELS>
+</ASSEMBLER_INFO>

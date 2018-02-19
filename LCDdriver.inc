@@ -42,6 +42,7 @@
 	push r19
 	push r18
 	mov r18, @1
+;	ldi r18, @1
 	ldi ZH, high(@0*2)
 	ldi ZL, low(@0*2)
 	rcall cStringOut

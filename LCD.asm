@@ -55,10 +55,10 @@ aq:
 	;REGISTER $22, 0
 	;REGISTER $52, 0b00000000
 	;rcall clrLCD
-	rcall stringTest
-	;WRITESTRING hello,11
+	;rcall stringTest
+	WRITESTRING hello,11
 main:
-	rcall stringTest
+	;rcall stringTest
 	rjmp main
 	
 	
@@ -126,6 +126,8 @@ initLCD:
 	REGISTER $8B, $FF ; PWM Duty Cycle
 	; LCD ON
 	REGISTER $01, $80
+	REGISTER $C7, 1
+	rcall clrLCD
 	ldi r19, 5
 	rcall readStatus
 	ret
@@ -142,7 +144,7 @@ stringOut:
 	rcall writeRegister*/
 	REGISTER $2F, $00
 	REGISTER $21, $20
-	ldi r19, $FF ; Background color
+	ldi r19, $00 ; Background color
 	ldi r20, $60
 	rcall writeRegister
 	;REGISTER $60, $FF
@@ -150,7 +152,7 @@ stringOut:
 	rcall writeRegister
 	inc r20
 	rcall writeRegister
-	ldi r19, $00 ; Foreground color
+	ldi r19, $FF ; Foreground color
 	inc r20
 	rcall writeRegister
 	inc r20
@@ -176,7 +178,7 @@ clrLCD:
 	ldi r20, $8E
 	rcall readRegister
 	sbr r19, 6
-	REGISTER $8E, (0<<6)
+	REGISTER $8E, $80
 /*	rcall startPacket
 	rcall writeData
 	rcall endPacket*/
@@ -315,7 +317,7 @@ Del10ms:
 		ret
 
 
-stringTest:
+/*stringTest:
 	REGISTER $91, 0
 	REGISTER $92, 0
 	REGISTER $93, 0
@@ -334,4 +336,52 @@ testLoop:
 	rcall readRegister
 	sbrc r19, 7
 	rjmp testLoop
+	ret*/
+stringTest:
+	
+	; text mode show cursor
+	REGISTER $40, $80
+	; cursor position
+	;REGISTER $2A, 10
+	;REGISTER $2B, 0
+	;REGISTER $2C, 10
+	;REGISTER $2D, 0
+	; write layer 1
+	;REGISTER $41, 0
+	;REGISTER $2F, $00
+	REGISTER $21, $00
+	REGISTER $60, 7
+	REGISTER $61, 7
+	REGISTER $62, 3
+	REGISTER $63, 0
+	REGISTER $64, 0
+	REGISTER $65, 0
+	/*ldi r19, $FF ; Background color
+	ldi r20, $60
+	rcall writeRegister
+	inc r20
+	rcall writeRegister
+	inc r20
+	rcall writeRegister
+	ldi r19, $00 ; Foreground color
+	inc r20
+	rcall writeRegister
+	inc r20
+	rcall writeRegister
+	inc r20
+	rcall writeRegister*/
+	ldi r20, $02
+	rcall writeCommand
+	rcall startPacket
+
+	ldi r19, $41
+	rcall writeData
+	rcall writeData
+	rcall writeData
+	rcall writeData
+	rcall writeData
+	rcall writeData
+	rcall writeData
+	rcall writeData
+	rcall endPacket
 	ret
