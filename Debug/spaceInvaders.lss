@@ -1,22 +1,24 @@
 
-AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm Fri Feb 16 17:07:13 2018
+AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm Tue Feb 20 16:44:14 2018
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\avrasm\inc\m128def.inc'
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(1): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\setup.asm'
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(2): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.inc'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(200): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(201): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\buttons.asm'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(202): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.inc(89): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\char.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(474): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(475): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\buttons.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(476): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm'
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm(1): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.inc'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(203): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(477): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\avrasm\inc\m128def.inc'
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(1): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\setup.asm'
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(2): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.inc'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(200): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(201): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\buttons.asm'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(202): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.inc(89): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\char.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(474): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\delayRoutines.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(475): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\buttons.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(476): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm'
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.asm(1): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\LCDdriver.inc'
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(203): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm'
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(477): Including file '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm'
                                  
                                  .INCLUDE "setup.asm"
                                  
@@ -1268,7 +1270,7 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  		;nop			; Vector Addresses are 2 words apart
                                  		;reti
 00001d 0000                      		nop			; Timer 1 Overflow  Vector 
-00001e 940c 009b                 		jmp interruptVector		; Timer 0 Compare  Vector 
+00001e 940c 0109                 		jmp interruptVector		; Timer 0 Compare  Vector 
                                  ;reti
 000020 0000                      		nop			; Vector Addresses are 2 words apart
 000021 9518                      		reti			; Timer 0 Overflow interrupt  Vector 
@@ -1349,6 +1351,11 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  	brge pc+2
                                  	rjmp @0
                                  .ENDMACRO
+                                 
+                                 .MACRO cge
+                                 	brlo pc+3
+                                 	call @0
+                                 .ENDMACRO
                                  .INCLUDE "LCDdriver.inc"
                                  
                                  #define LCD_DRIVER_INC
@@ -1359,6 +1366,17 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  	push r18
                                  	ldi r20, @0
                                  	ldi r19, @1
+                                 	rcall writeRegister
+                                 	pop r18
+                                 	pop r19
+                                 	pop r20
+                                 .ENDMACRO
+                                 .MACRO REGISTERR
+                                 	push r20
+                                 	push r19
+                                 	push r18
+                                 	ldi r20, @0
+                                 	mov r19, @1
                                  	rcall writeRegister
                                  	pop r18
                                  	pop r19
@@ -1426,22 +1444,136 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  	pop r19
                                  	pop r20
                                  .ENDMACRO
+00008f 940c 00c1                 jmp LCDskip
+                                 .INCLUDE "char.asm"
+                                 
+                                 #define chars
+                                 al:
+000091 0000
+000092 0300
+000093 090c
+000094 6d11
+000095 6083
+000096 031c
+000097 0000
+000098 0000                      	.db 0b00000000, 0b00000000, 0b00000000, 0b00000011, 0b00001100, 0b00001001, 0b00010001, 0b01101101, 0b10000011, 0b01100000, 0b00011100, 0b00000011, 0b00000000, 0b00000000, 0b00000000, 0b00000000
+                                 ar:
+000099 0000
+00009a c000
+00009b f0f0
+00009c f6f8
+00009d 06c1
+00009e c038
+00009f 0000
+0000a0 0000                      	.db 0b00000000, 0b00000000, 0b00000000, 0b11000000, 0b11110000, 0b11110000, 0b11111000, 0b11110110, 0b11000001, 0b00000110, 0b00111000, 0b11000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000
+                                 rl:
+0000a1 0000
+0000a2 0100
+0000a3 0202
+0000a4 0202
+0000a5 0a06
+0000a6 120b
+0000a7 1b17
+0000a8 0211                      	.db 0b00000000, 0b00000000, 0b00000000, 0b00000001, 0b00000010, 0b00000010, 0b00000010, 0b00000010, 0b00000110, 0b00001010, 0b00001011, 0b00010010, 0b00010111, 0b00011011, 0b00010001, 0b00000010
+                                 rr:
+0000a9 0000
+0000aa 8000
+0000ab 4040
+0000ac 4040
+0000ad 5060
+0000ae 48d0
+0000af 58e8
+0000b0 4008                      	.db 0b00000000, 0b00000000, 0b00000000, 0b10000000, 0b01000000, 0b01000000, 0b01000000, 0b01000000, 0b01100000, 0b01010000, 0b11010000, 0b01001000, 0b11101000, 0b01011000, 0b00001000, 0b01000000
+                                 pl:
+0000b1 0300
+0000b2 0303
+0000b3 0303
+0000b4 0f03
+0000b5 7f1e
+0000b6 5f5f
+0000b7 7f5e
+0000b8 0000                      	.db 0b00000000, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00000011, 0b00001111, 0b00011110, 0b01111111, 0b01011111, 0b01011111, 0b01011110, 0b01111111, 0b00000000, 0b00000000
+                                 pr:
+0000b9 c000
+0000ba 4040
+0000bb 4040
+0000bc 7040
+0000bd ce58
+0000be 0aca
+0000bf fe0a
+0000c0 0000                      	.db 0b00000000, 0b11000000, 0b01000000, 0b01000000, 0b01000000, 0b01000000, 0b01000000, 0b01110000, 0b01011000, 0b11001110, 0b11001010, 0b00001010, 0b00001010, 0b11111110, 0b00000000, 0b00000000
+                                 #endif
+                                 LCDskip:
                                  #endif
                                  
                                  ;###### LCD setup #####
                                  
-00008f d1a7                      rcall setupLCD
+0000c1 d330                      rcall setupLCD
                                  /*REGISTER $2A, $00
                                  REGISTER $2B, $00
                                  REGISTER $2C, $00
                                  REGISTER $2D, $00*/
-                                 /*CREATECHAR rl , $00
-                                 CREATECHAR rr, $01
-                                 CREATECHAR pl, $02
-                                 CREATECHAR pr, $03
-                                 CREATECHAR al, $04
-                                 CREATECHAR ar, $05*/
-000090 d18f                      rcall clrLCD
+0000c2 934f
+0000c3 933f
+0000c4 932f
+0000c5 e030
+0000c6 e0f1
+0000c7 e4e2
+0000c8 d5c9
+0000c9 912f
+0000ca 913f
+0000cb 914f                      CREATECHAR rl , $00
+0000cc 934f
+0000cd 933f
+0000ce 932f
+0000cf e031
+0000d0 e0f1
+0000d1 e5e2
+0000d2 d5bf
+0000d3 912f
+0000d4 913f
+0000d5 914f                      CREATECHAR rr, $01
+0000d6 934f
+0000d7 933f
+0000d8 932f
+0000d9 e032
+0000da e0f1
+0000db e6e2
+0000dc d5b5
+0000dd 912f
+0000de 913f
+0000df 914f                      CREATECHAR pl, $02
+0000e0 934f
+0000e1 933f
+0000e2 932f
+0000e3 e033
+0000e4 e0f1
+0000e5 e7e2
+0000e6 d5ab
+0000e7 912f
+0000e8 913f
+0000e9 914f                      CREATECHAR pr, $03
+0000ea 934f
+0000eb 933f
+0000ec 932f
+0000ed e034
+0000ee e0f1
+0000ef e2e2
+0000f0 d5a1
+0000f1 912f
+0000f2 913f
+0000f3 914f                      CREATECHAR al, $04
+0000f4 934f
+0000f5 933f
+0000f6 932f
+0000f7 e035
+0000f8 e0f1
+0000f9 e3e2
+0000fa d597
+0000fb 912f
+0000fc 913f
+0000fd 914f                      CREATECHAR ar, $05
+0000fe d2dc                      rcall clrLCD
                                  /*;Rocket:
                                  WRITECCHAR $00
                                  WRITECCHAR $01
@@ -1452,466 +1584,812 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  WRITECCHAR $04
                                  WRITECCHAR $05
                                  */
+                                 
                                  ;##############
                                  
-000091 e090                      ldi writeFlag, 0
-000092 e070                      ldi compFlag, 0
+0000ff e090                      ldi writeFlag, 0
+000100 e070                      ldi compFlag, 0
                                  
                                  ;##### The start of the program #####
                                  Main:
-000093 d02a                      	rcall initPpl
-000094 d18b                      	rcall clrLCD
+000101 d059                      	rcall initPpl
+000102 d2d8                      	rcall clrLCD
                                  retPt:
-000095 d02e                      	rcall menu
-000096 d032                      	rcall modeSelect
-000097 e010                      	ldi r17, $00
-000098 d03f                      	rcall foeLoop
-000099 d030                      	rcall deathScreen
+000103 d093                      	rcall menu
+000104 d097                      	rcall modeSelect
+000105 e010                      	ldi r17, $00
+000106 d0a6                      	rcall foeLoop
+000107 d095                      	rcall deathScreen
                                  
-00009a cff8                      	rjmp Main
+000108 cff8                      	rjmp Main
                                  
                                  ;##### Interrupt vector code #####
                                  
                                  interruptVector:
-00009b b64f                      	in r4, SREG
-00009c 932f                       	push r18
-00009d 937f                      	push r23
-00009e d15e                      	rcall buttonRead
-00009f 2f82                      	mov shift, r18
-0000a0 917f                      	pop r23
-0000a1 912f                      	pop r18
-0000a2 3179                      	cpi compFlag, 25
-0000a3 f029                      	breq movLoop
-0000a4 9573                      	inc compFlag
-0000a5 be4f                      	out SREG, r4
-0000a6 9518                      	reti
+000109 b64f                      	in r4, SREG
+00010a 932f                       	push r18
+00010b 937f                      	push r23
+00010c d2ab                      	rcall buttonRead
+00010d 2f82                      	mov shift, r18
+00010e 917f                      	pop r23
+00010f 912f                      	pop r18
+000110 3072                      	cpi compFlag, 2
+000111 f029                      	breq movLoop
+000112 9573                      	inc compFlag
+000113 be4f                      	out SREG, r4
+000114 9518                      	reti
                                  endP:
-0000a7 be4f                      	out SREG, r4
-0000a8 9518                      	reti
+000115 be4f                      	out SREG, r4
+000116 9518                      	reti
                                  
                                  movLoop:
-0000a9 3091                      	cpi writeFlag, 1
-0000aa f3e1                      	breq endP
-0000ab e070                      	ldi compFlag, 0
-0000ac d001                      	rcall playerLoop
-0000ad 9518                      	reti
+000117 fd90                      	sbrc writeFlag, 0
+000118 f3e1                      	breq endP
+000119 ff91                      	sbrs writeFlag, 1
+00011a 940e 013e                 	call clrRow
+00011c fd91                      	sbrc writeFlag, 1
+00011d 940e 014b                 	call nastyHack
+00011f 7f9d                      	cbr writeFlag, (1<<1)
+000120 e070                      	ldi compFlag, 0
+000121 d002                      	rcall playerLoop
+000122 be4f                      	out SREG, r4
+000123 9518                      	reti
                                  
                                  playerLoop:
-0000ae 3787                      	cpi shift, $77
-0000af f029                      	breq movLeft
-0000b0 3b87                      	cpi shift, $B7
-0000b1 f039                      	breq movRight
-0000b2 3d87                      	cpi shift, $D7
-0000b3 f049                      	breq shoot
-0000b4 9508                      	ret
+000124 3787                      	cpi shift, $77
+000125 f029                      	breq movLeft
+000126 3b87                      	cpi shift, $B7
+000127 f039                      	breq movRight
+000128 3d87                      	cpi shift, $D7
+000129 f049                      	breq shoot
+00012a 9508                      	ret
                                  
                                  
                                  movLeft:
-0000b5 3050                      	cpi playerPos, 0
-0000b6 f009                      	breq movLend
-0000b7 955a                      	dec playerPos
+00012b 3050                      	cpi playerPos, 0
+00012c f009                      	breq movLend
+00012d 955a                      	dec playerPos
                                  movLend:
-0000b8 9508                      	ret
+00012e 9508                      	ret
                                  	
                                  movRight:
-0000b9 315f                      	cpi playerPos, 31
-0000ba f009                      	breq movRend
-0000bb 9553                      	inc playerPos
+00012f 315f                      	cpi playerPos, 31
+000130 f009                      	breq movRend
+000131 9553                      	inc playerPos
                                  movRend:
-0000bc 9508                      	ret
+000132 9508                      	ret
                                  	
                                  
                                  shoot:
-0000bd 9508                      	ret
+000133 6092                      	sbr writeFlag, (1<<1)
+000134 93ef                      	push r30
+000135 93ff                      	push r31
+000136 91e0 0161                 	lds ZL, sixL
+000138 91f0 0160                 	lds ZH, sixH
+00013a 8350                      	st Z, playerPos
+00013b 91ff                      	pop r31
+00013c 91ef                      	pop r30
+00013d 9508                      	ret
+                                 
+                                 clrRow:
+00013e 930f                      	push r16
+00013f 93ef                      	push r30
+000140 93ff                      	push r31
+000141 e000                      	ldi r16, 0
+000142 91f0 0160                 	lds ZH, sixH
+000144 91e0 0161                 	lds ZL, sixL
+000146 8300                      	st Z, r16
+000147 91ff                      	pop r31
+000148 91ef                      	pop r30
+000149 910f                      	pop r16
+00014a 9508                      	ret
+                                 
+                                 nastyHack:
+00014b 3050                      	cpi playerPos, 0
+00014c f009
+00014d c00c                      	jne noNastyHack
+00014e 930f                      	push r16
+00014f 93ef                      	push r30
+000150 93ff                      	push r31
+000151 e001                      	ldi r16, 1
+000152 91e0 0161                 	lds ZL, sixL
+000154 91f0 0160                 	lds ZH, sixH
+000156 8300                      	st Z, r16
+000157 91ff                      	pop r31
+000158 91ef                      	pop r30
+000159 910f                      	pop r16
+                                 noNastyHack:	
+00015a 9508                      	ret
+                                 	
                                  
                                  ;##### Loops #####
                                  initPpl:
-0000be e144                      	ldi foeLength, 20
-0000bf e02d                      	ldi loLength, 13
-0000c0 e030                      	ldi roLength, 0
-0000c1 e261                      	ldi blnkRowl, 33
-0000c2 e050                      	ldi playerPos, 0
-0000c3 9508                      	ret
+00015b e144                      	ldi foeLength, 20
+00015c e02d                      	ldi loLength, 13
+00015d e030                      	ldi roLength, 0
+00015e e261                      	ldi blnkRowl, 33
+00015f e050                      	ldi playerPos, 0
+000160 e0f2                      	ldi ZH, HIGH(2*foe1)
+000161 e0e0                      	ldi ZL, LOW(2*foe1)
+000162 2f04                      	mov r16, foeLength
+000163 940e 033d                 	call foeRow
+000165 e0f2                      	ldi ZH, HIGH(2*foe2)
+000166 e2e8                      	ldi ZL, LOW(2*foe2)
+000167 2f04                      	mov r16, foeLength
+000168 940e 033d                 	call foeRow
+00016a e0f2                      	ldi ZH, HIGH(2*foe3)
+00016b e5e0                      	ldi ZL, LOW(2*foe3)
+00016c 2f04                      	mov r16, foeLength
+00016d 940e 033d                 	call foeRow
+00016f e0f2                      	ldi ZH, HIGH(2*foe4)
+000170 e7e8                      	ldi ZL, LOW(2*foe4)
+000171 2f04                      	mov r16, foeLength
+000172 940e 033d                 	call foeRow
+000174 e0f2                      	ldi ZH, HIGH(2*rockets)
+000175 ebe0                      	ldi ZL, LOW(2*rockets)
+000176 93e0 0161                 	sts sixL, ZL
+000178 93f0 0160                 	sts sixH, ZH
+00017a 940e 0348                 	call rocketRows
+00017c e0d2                      	ldi YH, HIGH(2*foePoint)
+00017d eac0                      	ldi YL, LOW(2*foePoint)
+00017e e0f2                      	ldi ZH, HIGH(2*foe1)
+00017f e0e0                      	ldi ZL, LOW(2*foe1)
+000180 83e8                      	st Y, ZL
+000181 9621                      	adiw Y, 1
+000182 83f8                      	st Y, ZH
+000183 9621                      	adiw Y, 1
+000184 e0f2                      	ldi ZH, HIGH(2*foe2)
+000185 e2e8                      	ldi ZL, LOW(2*foe2)
+000186 83e8                      	st Y, ZL
+000187 9621                      	adiw Y, 1
+000188 83f8                      	st Y, ZH
+000189 9621                      	adiw Y, 1
+00018a e0f2                      	ldi ZH, HIGH(2*foe3)
+00018b e5e0                      	ldi ZL, LOW(2*foe3)
+00018c 83e8                      	st Y, ZL
+00018d 9621                      	adiw Y, 1
+00018e 83f8                      	st Y, ZH
+00018f 9621                      	adiw Y, 1
+000190 e0f2                      	ldi ZH, HIGH(2*foe4)
+000191 e7e8                      	ldi ZL, LOW(2*foe4)
+000192 83e8                      	st Y, ZL
+000193 9621                      	adiw Y, 1
+000194 83f8                      	st Y, ZH
+000195 9621                      	adiw Y, 1
+                                 
+000196 9508                      	ret
                                  
                                  menu:
-0000c4 3091                      	cpi writeFlag, 1
-0000c5 f011                      	breq menu1
-0000c6 e091                      	ldi writeFlag, 1
+000197 fd90                      	sbrc writeFlag, 0
+000198 f011                      	breq menu1
+000199 6091                      	sbr writeFlag, (1<<0)
                                  
-0000c7 e090                      	ldi writeFlag, 0
+00019a 7f9e                      	cbr writeFlag, (1<<0)
                                  menu1:
-0000c8 9508                      	ret
+00019b 9508                      	ret
                                  
                                  modeSelect:
                                  
-0000c9 9508                      	ret
+00019c 9508                      	ret
                                  
                                  deathScreen:
-0000ca 930f                      	push r16
-0000cb e10a                      	ldi r16, 26
-0000cc 934f
-0000cd 933f
-0000ce 932f
-0000cf 2f20
-0000d0 e0fa
-0000d1 e5e0
-0000d2 d2c5
-0000d3 912f
-0000d4 913f
-0000d5 914f                      	WRITESTRING uDed, r16
-0000d6 910f                      	pop r16
-0000d7 cfbd                      	rjmp retPt
+00019d 930f                      	push r16
+00019e e10a                      	ldi r16, 26
+00019f 934f
+0001a0 933f
+0001a1 932f
+0001a2 2f20
+0001a3 e0fd
+0001a4 ebe4
+0001a5 d3ad
+0001a6 912f
+0001a7 913f
+0001a8 914f                      	WRITESTRING uDed, r16
+0001a9 940e 03ab                 	call BiglyDel
+0001ab 910f                      	pop r16
+0001ac cf56                      	rjmp retPt
                                  
                                  
                                  foeLoop:
-0000d8 9513                      	inc r17
+0001ad 9513                      	inc r17
                                  run1:
-0000d9 d00b                      	rcall screenUpdate
-0000da 952a                      	dec loLength
-0000db 9533                      	inc roLength
-0000dc 3020                      	cpi loLength, $00
-0000dd f009                      	breq reverse
+0001ae d00b                      	rcall screenUpdate
+0001af 952a                      	dec loLength
+0001b0 9533                      	inc roLength
+0001b1 3020                      	cpi loLength, $00
+0001b2 f009                      	breq reverse
                                  
-0000de cffa                      	rjmp run1
+0001b3 cffa                      	rjmp run1
                                  
                                  
                                  reverse:
-0000df d005                      	rcall screenUpdate
-0000e0 953a                      	dec roLength
-0000e1 9523                      	inc loLength
-0000e2 3030                      	cpi roLength, $00
-0000e3 f3a1                      	breq foeLoop
+0001b4 d005                      	rcall screenUpdate
+0001b5 953a                      	dec roLength
+0001b6 9523                      	inc loLength
+0001b7 3030                      	cpi roLength, $00
+0001b8 f3a1                      	breq foeLoop
                                  
-0000e4 cffa                      	rjmp reverse
+0001b9 cffa                      	rjmp reverse
                                  
                                  
                                  ;##### General routines #####
                                  
                                  screenUpdate:
-0000e5 d13a                      	rcall clrLCD
-0000e6 934f
-0000e7 933f
-0000e8 932f
-0000e9 e24a
-0000ea e030
-0000eb d261
-0000ec 912f
-0000ed 913f
-0000ee 914f                      	REGISTER $2A, $00
-0000ef 934f
-0000f0 933f
-0000f1 932f
-0000f2 e24b
-0000f3 e030
-0000f4 d258
-0000f5 912f
-0000f6 913f
-0000f7 914f                      	REGISTER $2B, $00
-0000f8 934f
-0000f9 933f
-0000fa 932f
-0000fb e24c
-0000fc e030
-0000fd d24f
-0000fe 912f
-0000ff 913f
-000100 914f                      	REGISTER $2C, $00
-000101 934f
-000102 933f
-000103 932f
-000104 e24d
-000105 e030
-000106 d246
-000107 912f
-000108 913f
-000109 914f                      	REGISTER $2D, $00
-00010a 934f
-00010b 933f
-00010c 932f
-00010d 2f22
-00010e e0f9
-00010f efee
-000110 d287
-000111 912f
-000112 913f
-000113 914f                      	WRITESTRING lo, loLength
-000114 934f
-000115 933f
-000116 932f
-000117 2f24
-000118 e0fa
-000119 e1ea
-00011a d2ee
-00011b 912f
-00011c 913f
-00011d 914f                      	WRITECSTRING foe, foeLength
-00011e 934f
-00011f 933f
-000120 932f
-000121 2f23
-000122 e0fa
-000123 e0ec
-000124 d273
-000125 912f
-000126 913f
-000127 914f                      	WRITESTRING ro, roLength
+0001ba d220                      	rcall clrLCD
+0001bb 934f
+0001bc 933f
+0001bd 932f
+0001be e24a
+0001bf e030
+0001c0 d347
+0001c1 912f
+0001c2 913f
+0001c3 914f                      	REGISTER $2A, $00
+0001c4 934f
+0001c5 933f
+0001c6 932f
+0001c7 e24b
+0001c8 e030
+0001c9 d33e
+0001ca 912f
+0001cb 913f
+0001cc 914f                      	REGISTER $2B, $00
+0001cd 934f
+0001ce 933f
+0001cf 932f
+0001d0 e24c
+0001d1 e030
+0001d2 d335
+0001d3 912f
+0001d4 913f
+0001d5 914f                      	REGISTER $2C, $00
+0001d6 934f
+0001d7 933f
+0001d8 932f
+0001d9 e24d
+0001da e030
+0001db d32c
+0001dc 912f
+0001dd 913f
+0001de 914f                      	REGISTER $2D, $00
+0001df 940e 01e4                 	call row1
+0001e1 940e 028d                 	call esc
+0001e3 9508                      	ret
+                                 
+                                 row1:
+0001e4 3015                      	cpi r17, 5
+0001e5 f010
+0001e6 940e 0207                 	cge row2
+0001e8 934f
+0001e9 933f
+0001ea 932f
+0001eb 2f22
+0001ec e0fd
+0001ed e7e4
+0001ee d364
+0001ef 912f
+0001f0 913f
+0001f1 914f                      	WRITESTRING lo, loLength
+0001f2 934f
+0001f3 933f
+0001f4 932f
+0001f5 2f24
+0001f6 e0f2
+0001f7 e0e0
+0001f8 d3cb
+0001f9 912f
+0001fa 913f
+0001fb 914f                      	WRITECSTRING foe1, foeLength
+0001fc 934f
+0001fd 933f
+0001fe 932f
+0001ff 2f23
+000200 e0fd
+000201 e8e2
+000202 d350
+000203 912f
+000204 913f
+000205 914f                      	WRITESTRING ro, roLength
+000206 9508                      	ret
+                                 
+                                 row2:
+000207 3019                      	cpi r17, 9
+000208 f010
+000209 940e 022a                 	cge row3
+00020b 934f
+00020c 933f
+00020d 932f
+00020e 2f22
+00020f e0fd
+000210 e7e4
+000211 d341
+000212 912f
+000213 913f
+000214 914f                      	WRITESTRING lo, loLength
+000215 934f
+000216 933f
+000217 932f
+000218 2f24
+000219 e0f2
+00021a e2e8
+00021b d3a8
+00021c 912f
+00021d 913f
+00021e 914f                      	WRITECSTRING foe2, foeLength
+00021f 934f
+000220 933f
+000221 932f
+000222 2f23
+000223 e0fd
+000224 e8e2
+000225 d32d
+000226 912f
+000227 913f
+000228 914f                      	WRITESTRING ro, roLength
+000229 9508                      	ret
+                                 
+                                 row3:
+00022a 301d                      	cpi r17, 13
+00022b f010
+00022c 940e 024d                 	cge row4
+00022e 934f
+00022f 933f
+000230 932f
+000231 2f22
+000232 e0fd
+000233 e7e4
+000234 d31e
+000235 912f
+000236 913f
+000237 914f                      	WRITESTRING lo, loLength
+000238 934f
+000239 933f
+00023a 932f
+00023b 2f24
+00023c e0f2
+00023d e5e0
+00023e d385
+00023f 912f
+000240 913f
+000241 914f                      	WRITECSTRING foe3, foeLength
+000242 934f
+000243 933f
+000244 932f
+000245 2f23
+000246 e0fd
+000247 e8e2
+000248 d30a
+000249 912f
+00024a 913f
+00024b 914f                      	WRITESTRING ro, roLength
+00024c 9508                      	ret
+                                 
+                                 row4:
+00024d 3111                      	cpi r17, 17
+00024e f010
+00024f 940e 0270                 	cge row5
+000251 934f
+000252 933f
+000253 932f
+000254 2f22
+000255 e0fd
+000256 e7e4
+000257 d2fb
+000258 912f
+000259 913f
+00025a 914f                      	WRITESTRING lo, loLength
+00025b 934f
+00025c 933f
+00025d 932f
+00025e 2f24
+00025f e0f2
+000260 e7e8
+000261 d362
+000262 912f
+000263 913f
+000264 914f                      	WRITECSTRING foe4, foeLength
+000265 934f
+000266 933f
+000267 932f
+000268 2f23
+000269 e0fd
+00026a e8e2
+00026b d2e7
+00026c 912f
+00026d 913f
+00026e 914f                      	WRITESTRING ro, roLength
+00026f 9508                      	ret
+                                 
+                                 row5:
+000270 3115                      	cpi r17, 21
+000271 f010
+000272 940e 027f                 	cge row6
+000274 934f
+000275 933f
+000276 932f
+000277 2f26
+000278 e0fd
+000279 e9e0
+00027a d2d8
+00027b 912f
+00027c 913f
+00027d 914f                      	WRITESTRING blnkRow, blnkRowl
+00027e 9508                      	ret
+                                 
+                                 row6:
+00027f 3119                      	cpi r17, 25
+000280 f008
+000281 cf1b                      	jge deathScreen
+000282 934f
+000283 933f
+000284 932f
+000285 2f26
+000286 e0fd
+000287 e9e0
+000288 d2ca
+000289 912f
+00028a 913f
+00028b 914f                      	WRITESTRING blnkRow, blnkRowl
+00028c 9508                      	ret
                                  	
-000128 3015                      	cpi r17, 5
-000129 f40c
-00012a c063                      	jlt esc
-00012b 934f
-00012c 933f
-00012d 932f
-00012e 2f22
-00012f e0f9
-000130 efee
-000131 d266
-000132 912f
-000133 913f
-000134 914f                      	WRITESTRING lo, loLength
-000135 934f
-000136 933f
-000137 932f
-000138 2f24
-000139 e0fa
-00013a e1ea
-00013b d2cd
-00013c 912f
-00013d 913f
-00013e 914f                      	WRITECSTRING foe, foeLength
-00013f 934f
-000140 933f
-000141 932f
-000142 2f23
-000143 e0fa
-000144 e0ec
-000145 d252
-000146 912f
-000147 913f
-000148 914f                      	WRITESTRING ro, roLength
-000149 3019                      	cpi r17, 9
-00014a f40c
-00014b c042                      	jlt esc
-00014c 934f
-00014d 933f
-00014e 932f
-00014f 2f22
-000150 e0f9
-000151 efee
-000152 d245
-000153 912f
-000154 913f
-000155 914f                      	WRITESTRING lo, loLength
-000156 934f
-000157 933f
-000158 932f
-000159 2f24
-00015a e0fa
-00015b e1ea
-00015c d2ac
-00015d 912f
-00015e 913f
-00015f 914f                      	WRITECSTRING foe, foeLength
-000160 934f
-000161 933f
-000162 932f
-000163 2f23
-000164 e0fa
-000165 e0ec
-000166 d231
-000167 912f
-000168 913f
-000169 914f                      	WRITESTRING ro, roLength
-00016a 301d                      	cpi r17, 13
-00016b f40c
-00016c c021                      	jlt esc
-00016d 934f
-00016e 933f
-00016f 932f
-000170 2f22
-000171 e0f9
-000172 efee
-000173 d224
-000174 912f
-000175 913f
-000176 914f                      	WRITESTRING lo, loLength
-000177 934f
-000178 933f
-000179 932f
-00017a 2f24
-00017b e0fa
-00017c e1ea
-00017d d28b
-00017e 912f
-00017f 913f
-000180 914f                      	WRITECSTRING foe, foeLength
-000181 934f
-000182 933f
-000183 932f
-000184 2f23
-000185 e0fa
-000186 e0ec
-000187 d210
-000188 912f
-000189 913f
-00018a 914f                      	WRITESTRING ro, roLength
-00018b 3111                      	cpi r17, 17
-00018c f008
-00018d cf3c                      	jge deathScreen
                                  esc:
-00018e d00e                      	rcall writePlayer
-00018f d05e                      	rcall BigDel
-000190 e090                      	ldi writeFlag, 0
-000191 9508                      	ret
+00028d d0c6                      	rcall writePlayer
+00028e d004                      	rcall writeRockets
+00028f 7f9e                      	cbr writeFlag, (1<<0)
+000290 d114                      	rcall BigDel
+000291 6091                      	sbr writeFlag, (1<<0)
+000292 9508                      	ret
                                  
+                                 writeRockets:
+000293 930f                      	push r16
+000294 931f                      	push r17
+000295 936f                      	push r22
+000296 93af                      	push r26
+000297 93bf                      	push r27
+000298 93cf                      	push r28
+000299 93df                      	push r29
+00029a 91f0 0160                 	lds ZH, sixH
+00029c 91e0 0161                 	lds ZL, sixL
+00029e e4c0                      	ldi YL, $40
+00029f e0d1                      	ldi YH, $01
+0002a0 e060                      	ldi r22, 0 ;Times round - gives row of rocket
+0002a1 951a                      	dec r17
+0002a2 9516                      	lsr r17
+0002a3 9516                      	lsr r17
+0002a4 9513                      	inc r17
+                                 rockLoop:
+0002a5 9563                      	inc r22
+0002a6 0f16                      	add r17, r22
+0002a7 934f
+0002a8 933f
+0002a9 932f
+0002aa e24c
+0002ab 2f3c
+0002ac d25b
+0002ad 912f
+0002ae 913f
+0002af 914f                      	REGISTERR $2C, YL
+0002b0 934f
+0002b1 933f
+0002b2 932f
+0002b3 e24d
+0002b4 2f3d
+0002b5 d252
+0002b6 912f
+0002b7 913f
+0002b8 914f                      	REGISTERR $2D, YH
+0002b9 e1a8                      	ldi r26, 24
+0002ba 8100                      	ld r16, Z
+0002bb 3000                      	cpi r16, 0
+0002bc f409
+0002bd c028                      	jeq rockInc
+0002be 9f0a                      	mul r16, r26
+0002bf 2da0                      	mov r26, r0
+0002c0 2db1                      	mov r27, r1
+0002c1 934f
+0002c2 933f
+0002c3 932f
+0002c4 e24a
+0002c5 2f3a
+0002c6 d241
+0002c7 912f
+0002c8 913f
+0002c9 914f                      	REGISTERR $2A, XL
+0002ca 934f
+0002cb 933f
+0002cc 932f
+0002cd e24b
+0002ce 2f3b
+0002cf d238
+0002d0 912f
+0002d1 913f
+0002d2 914f                      	REGISTERR $2B, XH
+0002d3 3017                      	cpi r17, 7
+0002d4 f008
+0002d5 c02c                      	jge killThings
+                                 rockOut:
+0002d6 934f
+0002d7 933f
+0002d8 932f
+0002d9 e020
+0002da d288
+0002db 912f
+0002dc 913f
+0002dd 914f                      	WRITECCHAR $00
+0002de 934f
+0002df 933f
+0002e0 932f
+0002e1 e021
+0002e2 d280
+0002e3 912f
+0002e4 913f
+0002e5 914f                      	WRITECCHAR $01
                                  
-                                 writeBlnkRow:
-000192 934f
-000193 933f
-000194 932f
-000195 2f26
-000196 e0fa
-000197 e2ee
-000198 d1ff
-000199 912f
-00019a 913f
-00019b 914f                      	WRITESTRING blnkRow, blnkRowl
-00019c 9508                      	ret
+                                 rockInc:
+                                 	
+0002e6 3066                      	cpi r22, 6
+0002e7 f409
+0002e8 c00d                      	jeq rockEnd
+0002e9 97a0                      	sbiw Y, $20
+0002ea 97a0                      	sbiw Y, $20
+0002eb 3be0                      	cpi ZL, LOW(2*rockets)
+0002ec f409
+0002ed c004                      	jeq add5
+0002ee 9731                      	sbiw Z, 1
+0002ef 1b16                      	sub r17, r22
+0002f0 940c 02a5                 	jmp rockLoop
+                                 add5:
+0002f2 9635                      	adiw Z, 5
+0002f3 1b16                      	sub r17, r22
+0002f4 940c 02a5                 	jmp rockLoop
+                                 rockEnd:
+0002f6 93e0 0161                 	sts sixL, ZL
+0002f8 93f0 0160                 	sts sixH, ZH
+0002fa 91df                      	pop r29
+0002fb 91cf                      	pop r28
+0002fc 91bf                      	pop r27
+0002fd 91af                      	pop r26
+0002fe 916f                      	pop r22
+0002ff 911f                      	pop r17
+000300 910f                      	pop r16 
+000301 9508                      	ret
+                                 
+                                 killThings:
+000302 301b                      	cpi r17, 11
+000303 f008
+000304 cfd1                      	jge rockOut
+000305 1702                      	cp r16, loLength
+000306 f408
+000307 cfce                      	jlo rockOut
+000308 5017                      	subi r17, 7
+000309 0f11                      	lsl r17
+                                 
+                                 killComp:
+00030a e0b2                      	ldi XH, HIGH(2*foePoint)
+00030b eaa0                      	ldi XL, LOW(2*foePoint)
+00030c 0fa1                      	add XL, r17
+00030d 930f                      	push r16
+00030e e000                      	ldi r16, 0
+00030f 1fb0                      	adc r27, r16
+000310 910f                      	pop r16
+000311 91cd                      	ld YL, X+
+000312 91dc                      	ld YH, X
+000313 932f                      	push r18
+000314 1b02                      	sub r16, loLength
+000315 0fc0                      	add YL, r16
+000316 930f                      	push r16
+000317 e000                      	ldi r16, 0
+000318 1fd0                      	adc r29, r16
+000319 910f                      	pop r16
+00031a 9621                      	adiw Y, 1
+00031b 933f                      	push r19
+00031c 8138                      	ld r19, Y
+00031d 3035                      	cpi r19, $05
+00031e f409
+00031f c00b                      	jeq delAbove
+000320 3034                      	cpi r19, $04
+000321 f409
+000322 c011                      	jeq delRight
+000323 913f                      	pop r19
+000324 912f                      	pop r18
+000325 9516                      	lsr r17
+000326 932f                      	push r18
+000327 e027                      	ldi r18, 7
+000328 0f12                      	add r17, r18
+000329 912f                      	pop r18
+00032a 9508                      	ret
+                                 
+                                 delAbove:
+00032b 930f                      	push r16
+00032c e006                      	ldi r16, $06
+00032d 8308                      	st Y, r16
+00032e 9721                      	sbiw Y, 1
+00032f 8308                      	st Y, r16
+000330 e000                      	ldi r16, 0
+000331 8300                      	st Z, r16
+000332 910f                      	pop r16
+000333 9508                      	ret
+                                 
+                                 delRight:
+000334 930f                      	push r16
+000335 e006                      	ldi r16, $06
+000336 8308                      	st Y, r16
+000337 9621                      	adiw Y, 1
+000338 8308                      	st Y, r16
+000339 e000                      	ldi r16, 0
+00033a 8300                      	st Z, r16
+00033b 910f                      	pop r16
+00033c 9508                      	ret
+                                 
+                                 	
+                                 
+                                 foeRow:
+00033d 931f                      	push r17
+                                 foej:
+00033e e014                      	ldi r17, $04
+00033f 9311                      	st Z+, r17
+000340 e015                      	ldi r17, $05
+000341 9311                      	st Z+, r17
+000342 5002                      	subi r16, 2
+000343 3000                      	cpi r16, 0
+000344 f009
+000345 cff8                      	jne foej
+000346 911f                      	pop r17
+000347 9508                      	ret
+                                 
+                                 rocketRows:
+000348 930f                      	push r16
+000349 931f                      	push r17
+00034a e006                      	ldi r16, 6
+                                 rowj:
+00034b e010                      	ldi r17, $00
+00034c 9311                      	st Z+, r17
+00034d 5001                      	subi r16, 1
+00034e 3000                      	cpi r16, 0
+00034f f009
+000350 cffa                      	jne rowj
+000351 911f                      	pop r17
+000352 910f                      	pop r16
+000353 9508                      	ret
                                  
                                  writePlayer:
-00019d 934f
-00019e 933f
-00019f 932f
-0001a0 e24c
-0001a1 e830
-0001a2 d1aa
-0001a3 912f
-0001a4 913f
-0001a5 914f                      	REGISTER $2C, $80
-0001a6 934f
-0001a7 933f
-0001a8 932f
-0001a9 e24d
-0001aa e031
-0001ab d1a1
-0001ac 912f
-0001ad 913f
-0001ae 914f                      	REGISTER $2D, $01
-0001af 934f
-0001b0 933f
-0001b1 932f
-0001b2 2f25
-0001b3 e0fa
-0001b4 e2ee
-0001b5 d1e2
-0001b6 912f
-0001b7 913f
-0001b8 914f                      	WRITESTRING blnkRow, playerPos
-0001b9 934f
-0001ba 933f
-0001bb 932f
-0001bc e022
-0001bd d1ea
-0001be 912f
-0001bf 913f
-0001c0 914f                      	WRITECCHAR $02
-0001c1 934f
-0001c2 933f
-0001c3 932f
-0001c4 e023
-0001c5 d1e2
-0001c6 912f
-0001c7 913f
-0001c8 914f                      	WRITECCHAR $03
-0001c9 9508                      	ret
+000354 934f
+000355 933f
+000356 932f
+000357 e24c
+000358 e830
+000359 d1ae
+00035a 912f
+00035b 913f
+00035c 914f                      	REGISTER $2C, $80
+00035d 934f
+00035e 933f
+00035f 932f
+000360 e24d
+000361 e031
+000362 d1a5
+000363 912f
+000364 913f
+000365 914f                      	REGISTER $2D, $01
+000366 934f
+000367 933f
+000368 932f
+000369 2f25
+00036a e0fd
+00036b e9e0
+00036c d1e6
+00036d 912f
+00036e 913f
+00036f 914f                      	WRITESTRING blnkRow, playerPos
+000370 934f
+000371 933f
+000372 932f
+000373 e022
+000374 d1ee
+000375 912f
+000376 913f
+000377 914f                      	WRITECCHAR $02
+000378 934f
+000379 933f
+00037a 932f
+00037b e023
+00037c d1e6
+00037d 912f
+00037e 913f
+00037f 914f                      	WRITECCHAR $03
+000380 9508                      	ret
                                  
                                  .INCLUDE "delayRoutines.asm"
                                  
-0001ca 93af                      DEL15ms:push r26
-0001cb 93bf                      		push r27
-0001cc e4be                              ldi XH, HIGH(19997)
-0001cd e1ad                              ldi XL, LOW (19997)
+000381 93af                      DEL15ms:push r26
+000382 93bf                      		push r27
+000383 e4be                              ldi XH, HIGH(19997)
+000384 e1ad                              ldi XL, LOW (19997)
                                  COUNT:  
-0001ce 9711                              sbiw XL, 1
-0001cf f7f1                              brne COUNT
-0001d0 91bf                      		pop r27
-0001d1 91af                      		pop r26
-0001d2 9508                              ret
+000385 9711                              sbiw XL, 1
+000386 f7f1                              brne COUNT
+000387 91bf                      		pop r27
+000388 91af                      		pop r26
+000389 9508                              ret
                                  ;
                                  DEL4P1ms:
-0001d3 93af                      		push r26
-0001d4 93bf                      		push r27
-0001d5 e1b5                              ldi XH, HIGH(5464)
-0001d6 e5a8                              ldi XL, LOW (5464)
+00038a 93af                      		push r26
+00038b 93bf                      		push r27
+00038c e1b5                              ldi XH, HIGH(5464)
+00038d e5a8                              ldi XL, LOW (5464)
                                  COUNT1:
-0001d7 9711                              sbiw XL, 1
-0001d8 f7f1                              brne COUNT1
-0001d9 91bf                      		pop r27
-0001da 91af                      		pop r26
-0001db 9508                              ret 
+00038e 9711                              sbiw XL, 1
+00038f f7f1                              brne COUNT1
+000390 91bf                      		pop r27
+000391 91af                      		pop r26
+000392 9508                              ret 
                                  ;bigdel
                                  DEL100mus:
-0001dc 93af                      		push r26
-0001dd 93bf                      		push r27
-0001de e0b0                              ldi XH, HIGH(131)
-0001df e8a3                              ldi XL, LOW (131)
+000393 93af                      		push r26
+000394 93bf                      		push r27
+000395 e0b0                              ldi XH, HIGH(131)
+000396 e8a3                              ldi XL, LOW (131)
                                  COUNT2:
-0001e0 9711                              sbiw XL, 1
-0001e1 f7f1                              brne COUNT2
-0001e2 91bf                      		pop r27
-0001e3 91af                      		pop r26
-0001e4 9508                              ret 
+000397 9711                              sbiw XL, 1
+000398 f7f1                              brne COUNT2
+000399 91bf                      		pop r27
+00039a 91af                      		pop r26
+00039b 9508                              ret 
                                  ;
                                  DEL49ms:
-0001e5 93af                      		push r26
-0001e6 93bf                      		push r27
-0001e7 efbf                              ldi XH, HIGH(65535)
-0001e8 efaf                              ldi XL, LOW (65535)
+00039c 93af                      		push r26
+00039d 93bf                      		push r27
+00039e efbf                              ldi XH, HIGH(65535)
+00039f efaf                              ldi XL, LOW (65535)
                                  COUNT3:
-0001e9 9711                              sbiw XL, 1
-0001ea f7f1                              brne COUNT3
-0001eb 91bf                      		pop r27
-0001ec 91af                      		pop r26
-0001ed 9508                              ret
+0003a0 9711                              sbiw XL, 1
+0003a1 f7f1                              brne COUNT3
+0003a2 91bf                      		pop r27
+0003a3 91af                      		pop r26
+0003a4 9508                              ret
                                  
                                  BigDel:
-0001ee dff6                              rcall Del49ms
+0003a5 dff6                              rcall Del49ms
                                  #ifndef debugtime
+0003a6 dff5                              rcall Del49ms
+0003a7 dff4                              rcall Del49ms
+0003a8 dff3                      	    rcall Del49ms
+0003a9 dff2                              rcall Del49ms
                                  #endif
-0001ef 9508                              ret
+0003aa 9508                              ret
                                  ;
-0001f0 dffd                      BiglyDel:   rcall BigDel
-0001f1 dffc                      			rcall BigDel
-0001f2 dffb                      			rcall BigDel
-0001f3 dffa                      			rcall BigDel
-0001f4 dff9                      			rcall BigDel
-0001f5 dff8                      			rcall BigDel
-0001f6 dff7                      			rcall BigDel
-0001f7 dff6                      			rcall BigDel
-0001f8 dff5                      			rcall BigDel
-0001f9 dff4                      			rcall BigDel
-0001fa dff3                      			rcall BigDel
-0001fb dff2                      			rcall BigDel
+0003ab dff9                      BiglyDel:   rcall BigDel
+0003ac dff8                      			rcall BigDel
+0003ad dff7                      			rcall BigDel
+0003ae dff6                      			rcall BigDel
+0003af dff5                      			rcall BigDel
+0003b0 dff4                      			rcall BigDel
+0003b1 dff3                      			rcall BigDel
+0003b2 dff2                      			rcall BigDel
+0003b3 dff1                      			rcall BigDel
+0003b4 dff0                      			rcall BigDel
+0003b5 dfef                      			rcall BigDel
+0003b6 dfee                      			rcall BigDel
                                  			
                                  .INCLUDE "buttons.asm"
-0001fc 9508                      
-0001fd 930f                      		push r16
-0001fe ef70                      		ldi r23, $F0
-0001ff e020                      		ldi r18, $00
-000200 d007                      		rcall initE
-000201 b101                      		in r16, PINE
-000202 0f20                      		add r18, r16
-000203 d004                      		rcall initE
-000204 b101                      		in r16, PINE
-000205 0f20                      		add r18, r16
-000206 910f                      		pop r16
-000207 9508                      		ret
+0003b7 9508                      
+0003b8 930f                      		push r16
+0003b9 ef70                      		ldi r23, $F0
+0003ba e020                      		ldi r18, $00
+0003bb d007                      		rcall initE
+0003bc b101                      		in r16, PINE
+0003bd 0f20                      		add r18, r16
+0003be d004                      		rcall initE
+0003bf b101                      		in r16, PINE
+0003c0 0f20                      		add r18, r16
+0003c1 910f                      		pop r16
+0003c2 9508                      		ret
                                  
                                  initE:
-000208 b973                      		out PORTE, r23
-000209 9570                      		com R23
-00020a b972                      		out DDRE, r23
-00020b 9508                      		ret
+0003c3 b973                      		out PORTE, r23
+0003c4 9570                      		com R23
+0003c5 b972                      		out DDRE, r23
+0003c6 9508                      		ret
                                  .INCLUDE "LCDdriver.asm"
                                  
                                  
@@ -1919,673 +2397,673 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  #ifndef dels
                                  #define dels
                                  DEL1ms:
-00020c 93af                      		push r26
-00020d 93bf                      		push r27
-00020e e0b5                              ldi XH, HIGH(1330)
-00020f e3a2                              ldi XL, LOW (1330)
+0003c7 93af                      		push r26
+0003c8 93bf                      		push r27
+0003c9 e0b5                              ldi XH, HIGH(1330)
+0003ca e3a2                              ldi XL, LOW (1330)
                                  COUNT001:
-000210 9711                              sbiw XL, 1
-000211 f7f1                              brne COUNT001
-000212 91bf                      		pop r27
-000213 91af                      		pop r26
-000214 9508                              ret 
+0003cb 9711                              sbiw XL, 1
+0003cc f7f1                              brne COUNT001
+0003cd 91bf                      		pop r27
+0003ce 91af                      		pop r26
+0003cf 9508                              ret 
                                  
                                  Del10ms:
-000215 dff6                      		rcall DEL1ms
-000216 dff5                      		rcall DEL1ms
-000217 dff4                      		rcall DEL1ms
-000218 dff3                      		rcall DEL1ms
-000219 dff2                      		rcall DEL1ms
-00021a dff1                      		rcall DEL1ms
-00021b dff0                      		rcall DEL1ms
-00021c dfef                      		rcall DEL1ms
-00021d dfee                      		rcall DEL1ms
-00021e dfed                      		rcall DEL1ms
-00021f 9508                      		ret
+0003d0 dff6                      		rcall DEL1ms
+0003d1 dff5                      		rcall DEL1ms
+0003d2 dff4                      		rcall DEL1ms
+0003d3 dff3                      		rcall DEL1ms
+0003d4 dff2                      		rcall DEL1ms
+0003d5 dff1                      		rcall DEL1ms
+0003d6 dff0                      		rcall DEL1ms
+0003d7 dfef                      		rcall DEL1ms
+0003d8 dfee                      		rcall DEL1ms
+0003d9 dfed                      		rcall DEL1ms
+0003da 9508                      		ret
                                  #endif
                                  clrLCD:
-000220 934f                      	push r20
-000221 933f                      	push r19
-000222 932f                      	push r18
-000223 934f
-000224 933f
-000225 932f
-000226 e84e
-000227 e830
-000228 d124
-000229 912f
-00022a 913f
-00022b 914f                      	REGISTER $8E, $80
-00022c e84e                      	ldi r20, $8E
+0003db 934f                      	push r20
+0003dc 933f                      	push r19
+0003dd 932f                      	push r18
+0003de 934f
+0003df 933f
+0003e0 932f
+0003e1 e84e
+0003e2 e830
+0003e3 d124
+0003e4 912f
+0003e5 913f
+0003e6 914f                      	REGISTER $8E, $80
+0003e7 e84e                      	ldi r20, $8E
                                  clrLCDLoop:
-00022d d124                      	rcall writeCommand
-00022e d156                      	rcall startPacket
-00022f d130                      	rcall readData
-000230 d149                      	rcall endPacket
-000231 fd37                      	sbrc r19, 7
-000232 cffa                      	rjmp clrLCDLoop
-000233 912f                      	pop r18
-000234 913f                      	pop r19
-000235 914f                      	pop r20
-000236 9508                      	ret
+0003e8 d124                      	rcall writeCommand
+0003e9 d156                      	rcall startPacket
+0003ea d130                      	rcall readData
+0003eb d149                      	rcall endPacket
+0003ec fd37                      	sbrc r19, 7
+0003ed cffa                      	rjmp clrLCDLoop
+0003ee 912f                      	pop r18
+0003ef 913f                      	pop r19
+0003f0 914f                      	pop r20
+0003f1 9508                      	ret
                                  
                                  
                                  
                                  setupLCD:
-000237 e107                      	ldi r16,0b00010111 ; Pin 4 as output for reset
-000238 bb07                      	out DDRB, r16 ; SS*, SCK, MOSI outputs
-000239 e000                      	ldi r16, 0
-00023a bb08                      	out PORTB, r16
-00023b e50e                      	ldi r16, 0b01011110 ; set SPR0, CPHA, CPOL, MSTR, SPE (Interupts [7] disabled)
-00023c b90d                      	out SPCR, r16
+0003f2 e107                      	ldi r16,0b00010111 ; Pin 4 as output for reset
+0003f3 bb07                      	out DDRB, r16 ; SS*, SCK, MOSI outputs
+0003f4 e000                      	ldi r16, 0
+0003f5 bb08                      	out PORTB, r16
+0003f6 e50e                      	ldi r16, 0b01011110 ; set SPR0, CPHA, CPOL, MSTR, SPE (Interupts [7] disabled)
+0003f7 b90d                      	out SPCR, r16
                                  
-00023d e000                      	ldi r16, 0
-00023e bb08                      	out PORTB, r16 ;reset low
-00023f dfcc                      	rcall DEL1ms
-000240 e100                      	ldi r16, 0b00010000 ;reset high
-000241 bb08                      	out PORTB, r16
-000242 dfd2                      	rcall Del10ms
+0003f8 e000                      	ldi r16, 0
+0003f9 bb08                      	out PORTB, r16 ;reset low
+0003fa dfcc                      	rcall DEL1ms
+0003fb e100                      	ldi r16, 0b00010000 ;reset high
+0003fc bb08                      	out PORTB, r16
+0003fd dfd2                      	rcall Del10ms
                                  
                                  	; PLL Setup
-000243 934f
-000244 933f
-000245 932f
-000246 e848
-000247 e03a
-000248 d104
-000249 912f
-00024a 913f
-00024b 914f                      	REGISTER $88, $0A
-00024c dfbf                      	rcall DEL1ms
-00024d 934f
-00024e 933f
-00024f 932f
-000250 e849
-000251 e032
-000252 d0fa
-000253 912f
-000254 913f
-000255 914f                      	REGISTER $89, $02
-000256 dfb5                      	rcall DEL1ms
+0003fe 934f
+0003ff 933f
+000400 932f
+000401 e848
+000402 e03a
+000403 d104
+000404 912f
+000405 913f
+000406 914f                      	REGISTER $88, $0A
+000407 dfbf                      	rcall DEL1ms
+000408 934f
+000409 933f
+00040a 932f
+00040b e849
+00040c e032
+00040d d0fa
+00040e 912f
+00040f 913f
+000410 914f                      	REGISTER $89, $02
+000411 dfb5                      	rcall DEL1ms
                                  
-000257 934f
-000258 933f
-000259 932f
-00025a e140
-00025b e030
-00025c d0f0
-00025d 912f
-00025e 913f
-00025f 914f                      	REGISTER $10, $00 ; 8-bit
+000412 934f
+000413 933f
+000414 932f
+000415 e140
+000416 e030
+000417 d0f0
+000418 912f
+000419 913f
+00041a 914f                      	REGISTER $10, $00 ; 8-bit
                                  
-000260 934f
-000261 933f
-000262 932f
-000263 e044
-000264 e831
-000265 d0e7
-000266 912f
-000267 913f
-000268 914f                      	REGISTER $04, $81 ; Pixel clock
-000269 dfa2                      	rcall DEL1ms
+00041b 934f
+00041c 933f
+00041d 932f
+00041e e044
+00041f e831
+000420 d0e7
+000421 912f
+000422 913f
+000423 914f                      	REGISTER $04, $81 ; Pixel clock
+000424 dfa2                      	rcall DEL1ms
                                  
                                  	; Horizonatal
-00026a 934f
-00026b 933f
-00026c 932f
-00026d e144
-00026e e633
-00026f d0dd
-000270 912f
-000271 913f
-000272 914f                      	REGISTER $14, $63
-000273 934f
-000274 933f
-000275 932f
-000276 e145
-000277 e030
-000278 d0d4
-000279 912f
-00027a 913f
-00027b 914f                      	REGISTER $15, $00
-00027c 934f
-00027d 933f
-00027e 932f
-00027f e146
-000280 e033
-000281 d0cb
-000282 912f
-000283 913f
-000284 914f                      	REGISTER $16, $03
-000285 934f
-000286 933f
-000287 932f
-000288 e147
-000289 e033
-00028a d0c2
-00028b 912f
-00028c 913f
-00028d 914f                      	REGISTER $17, $03
-00028e 934f
-00028f 933f
-000290 932f
-000291 e148
-000292 e03b
-000293 d0b9
-000294 912f
-000295 913f
-000296 914f                      	REGISTER $18, $0B
+000425 934f
+000426 933f
+000427 932f
+000428 e144
+000429 e633
+00042a d0dd
+00042b 912f
+00042c 913f
+00042d 914f                      	REGISTER $14, $63
+00042e 934f
+00042f 933f
+000430 932f
+000431 e145
+000432 e030
+000433 d0d4
+000434 912f
+000435 913f
+000436 914f                      	REGISTER $15, $00
+000437 934f
+000438 933f
+000439 932f
+00043a e146
+00043b e033
+00043c d0cb
+00043d 912f
+00043e 913f
+00043f 914f                      	REGISTER $16, $03
+000440 934f
+000441 933f
+000442 932f
+000443 e147
+000444 e033
+000445 d0c2
+000446 912f
+000447 913f
+000448 914f                      	REGISTER $17, $03
+000449 934f
+00044a 933f
+00044b 932f
+00044c e148
+00044d e03b
+00044e d0b9
+00044f 912f
+000450 913f
+000451 914f                      	REGISTER $18, $0B
                                  
                                  	; Vertical
-000297 934f
-000298 933f
-000299 932f
-00029a e149
-00029b ed3f
-00029c d0b0
-00029d 912f
-00029e 913f
-00029f 914f                      	REGISTER $19, $DF
-0002a0 934f
-0002a1 933f
-0002a2 932f
-0002a3 e14a
-0002a4 e031
-0002a5 d0a7
-0002a6 912f
-0002a7 913f
-0002a8 914f                      	REGISTER $1A, $01
-0002a9 934f
-0002aa 933f
-0002ab 932f
-0002ac e14b
-0002ad e13f
-0002ae d09e
-0002af 912f
-0002b0 913f
-0002b1 914f                      	REGISTER $1B, $1F ;$20
-0002b2 934f
-0002b3 933f
-0002b4 932f
-0002b5 e14c
-0002b6 e030
-0002b7 d095
-0002b8 912f
-0002b9 913f
-0002ba 914f                      	REGISTER $1C, $00
-0002bb 934f
-0002bc 933f
-0002bd 932f
-0002be e14d
-0002bf e136
-0002c0 d08c
-0002c1 912f
-0002c2 913f
-0002c3 914f                      	REGISTER $1D, $16
-0002c4 934f
-0002c5 933f
-0002c6 932f
-0002c7 e14e
-0002c8 e030
-0002c9 d083
-0002ca 912f
-0002cb 913f
-0002cc 914f                      	REGISTER $1E, $00
-0002cd 934f
-0002ce 933f
-0002cf 932f
-0002d0 e14f
-0002d1 e031
-0002d2 d07a
-0002d3 912f
-0002d4 913f
-0002d5 914f                      	REGISTER $1F, $01
+000452 934f
+000453 933f
+000454 932f
+000455 e149
+000456 ed3f
+000457 d0b0
+000458 912f
+000459 913f
+00045a 914f                      	REGISTER $19, $DF
+00045b 934f
+00045c 933f
+00045d 932f
+00045e e14a
+00045f e031
+000460 d0a7
+000461 912f
+000462 913f
+000463 914f                      	REGISTER $1A, $01
+000464 934f
+000465 933f
+000466 932f
+000467 e14b
+000468 e13f
+000469 d09e
+00046a 912f
+00046b 913f
+00046c 914f                      	REGISTER $1B, $1F ;$20
+00046d 934f
+00046e 933f
+00046f 932f
+000470 e14c
+000471 e030
+000472 d095
+000473 912f
+000474 913f
+000475 914f                      	REGISTER $1C, $00
+000476 934f
+000477 933f
+000478 932f
+000479 e14d
+00047a e136
+00047b d08c
+00047c 912f
+00047d 913f
+00047e 914f                      	REGISTER $1D, $16
+00047f 934f
+000480 933f
+000481 932f
+000482 e14e
+000483 e030
+000484 d083
+000485 912f
+000486 913f
+000487 914f                      	REGISTER $1E, $00
+000488 934f
+000489 933f
+00048a 932f
+00048b e14f
+00048c e031
+00048d d07a
+00048e 912f
+00048f 913f
+000490 914f                      	REGISTER $1F, $01
                                  
                                  	; Active window
-0002d6 934f
-0002d7 933f
-0002d8 932f
-0002d9 e340
-0002da e030
-0002db d071
-0002dc 912f
-0002dd 913f
-0002de 914f                      	REGISTER $30, $00
-0002df 934f
-0002e0 933f
-0002e1 932f
-0002e2 e341
-0002e3 e030
-0002e4 d068
-0002e5 912f
-0002e6 913f
-0002e7 914f                      	REGISTER $31, $00
-0002e8 934f
-0002e9 933f
-0002ea 932f
-0002eb e344
-0002ec e13f
-0002ed d05f
-0002ee 912f
-0002ef 913f
-0002f0 914f                      	REGISTER $34, $1F
-0002f1 934f
-0002f2 933f
-0002f3 932f
-0002f4 e345
-0002f5 e033
-0002f6 d056
-0002f7 912f
-0002f8 913f
-0002f9 914f                      	REGISTER $35, $03
-0002fa 934f
-0002fb 933f
-0002fc 932f
-0002fd e342
-0002fe e030
-0002ff d04d
-000300 912f
-000301 913f
-000302 914f                      	REGISTER $32, $00
-000303 934f
-000304 933f
-000305 932f
-000306 e343
-000307 e030
-000308 d044
-000309 912f
-00030a 913f
-00030b 914f                      	REGISTER $33, $00
-00030c 934f
-00030d 933f
-00030e 932f
-00030f e346
-000310 ed3f
-000311 d03b
-000312 912f
-000313 913f
-000314 914f                      	REGISTER $36, $DF
-000315 934f
-000316 933f
-000317 932f
-000318 e347
-000319 e031
-00031a d032
-00031b 912f
-00031c 913f
-00031d 914f                      	REGISTER $37, $01
+000491 934f
+000492 933f
+000493 932f
+000494 e340
+000495 e030
+000496 d071
+000497 912f
+000498 913f
+000499 914f                      	REGISTER $30, $00
+00049a 934f
+00049b 933f
+00049c 932f
+00049d e341
+00049e e030
+00049f d068
+0004a0 912f
+0004a1 913f
+0004a2 914f                      	REGISTER $31, $00
+0004a3 934f
+0004a4 933f
+0004a5 932f
+0004a6 e344
+0004a7 e13f
+0004a8 d05f
+0004a9 912f
+0004aa 913f
+0004ab 914f                      	REGISTER $34, $1F
+0004ac 934f
+0004ad 933f
+0004ae 932f
+0004af e345
+0004b0 e033
+0004b1 d056
+0004b2 912f
+0004b3 913f
+0004b4 914f                      	REGISTER $35, $03
+0004b5 934f
+0004b6 933f
+0004b7 932f
+0004b8 e342
+0004b9 e030
+0004ba d04d
+0004bb 912f
+0004bc 913f
+0004bd 914f                      	REGISTER $32, $00
+0004be 934f
+0004bf 933f
+0004c0 932f
+0004c1 e343
+0004c2 e030
+0004c3 d044
+0004c4 912f
+0004c5 913f
+0004c6 914f                      	REGISTER $33, $00
+0004c7 934f
+0004c8 933f
+0004c9 932f
+0004ca e346
+0004cb ed3f
+0004cc d03b
+0004cd 912f
+0004ce 913f
+0004cf 914f                      	REGISTER $36, $DF
+0004d0 934f
+0004d1 933f
+0004d2 932f
+0004d3 e347
+0004d4 e031
+0004d5 d032
+0004d6 912f
+0004d7 913f
+0004d8 914f                      	REGISTER $37, $01
                                  
-00031e 934f
-00031f 933f
-000320 932f
-000321 e84e
-000322 e830
-000323 d029
-000324 912f
-000325 913f
-000326 914f                      	REGISTER $8E, $80
-000327 deed                      	rcall Del10ms
+0004d9 934f
+0004da 933f
+0004db 932f
+0004dc e84e
+0004dd e830
+0004de d029
+0004df 912f
+0004e0 913f
+0004e1 914f                      	REGISTER $8E, $80
+0004e2 deed                      	rcall Del10ms
                                  
                                  	; Display on
-000328 934f
-000329 933f
-00032a 932f
-00032b e041
-00032c e830
-00032d d01f
-00032e 912f
-00032f 913f
-000330 914f                      	REGISTER $01, $80
-000331 934f
-000332 933f
-000333 932f
-000334 ec47
-000335 e031
-000336 d016
-000337 912f
-000338 913f
-000339 914f                      	REGISTER $C7, $01
+0004e3 934f
+0004e4 933f
+0004e5 932f
+0004e6 e041
+0004e7 e830
+0004e8 d01f
+0004e9 912f
+0004ea 913f
+0004eb 914f                      	REGISTER $01, $80
+0004ec 934f
+0004ed 933f
+0004ee 932f
+0004ef ec47
+0004f0 e031
+0004f1 d016
+0004f2 912f
+0004f3 913f
+0004f4 914f                      	REGISTER $C7, $01
                                  
                                  	; PWM Backlight
-00033a 934f
-00033b 933f
-00033c 932f
-00033d e84a
-00033e e83a
-00033f d00d
-000340 912f
-000341 913f
-000342 914f                      	REGISTER $8A, $8A
-000343 934f
-000344 933f
-000345 932f
-000346 e84b
-000347 ef3f
-000348 d004
-000349 912f
-00034a 913f
-00034b 914f                      	REGISTER $8B, $FF
+0004f5 934f
+0004f6 933f
+0004f7 932f
+0004f8 e84a
+0004f9 e83a
+0004fa d00d
+0004fb 912f
+0004fc 913f
+0004fd 914f                      	REGISTER $8A, $8A
+0004fe 934f
+0004ff 933f
+000500 932f
+000501 e84b
+000502 ef3f
+000503 d004
+000504 912f
+000505 913f
+000506 914f                      	REGISTER $8B, $FF
                                  
                                  	
-00034c 9508                      	ret
+000507 9508                      	ret
                                  
                                  
                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                  ;write [r19] into register [r20]
                                  writeRegister:
-00034d d004                      	rcall writeCommand
-00034e d036                      	rcall startPacket
-00034f d00a                      	rcall writeData
-000350 d029                      	rcall endPacket
-000351 9508                      	ret
+000508 d004                      	rcall writeCommand
+000509 d036                      	rcall startPacket
+00050a d00a                      	rcall writeData
+00050b d029                      	rcall endPacket
+00050c 9508                      	ret
                                  
                                  ; Write command [r20]
                                  writeCommand:
-000352 d032                      	rcall startPacket
-000353 e800                      	ldi r16, $80
-000354 b90f                      	out SPDR, r16
-000355 d021                      	rcall waitTransmit
-000356 b94f                      	out SPDR, r20
-000357 d01f                      	rcall waitTransmit
-000358 d021                      	rcall endPacket
-000359 9508                      	ret
+00050d d032                      	rcall startPacket
+00050e e800                      	ldi r16, $80
+00050f b90f                      	out SPDR, r16
+000510 d021                      	rcall waitTransmit
+000511 b94f                      	out SPDR, r20
+000512 d01f                      	rcall waitTransmit
+000513 d021                      	rcall endPacket
+000514 9508                      	ret
                                  
                                  ; Write byte [r19] as data (no packet control)
                                  writeData:
-00035a e000                      	ldi r16, 0
-00035b b90f                      	out SPDR, r16
-00035c d01a                      	rcall waitTransmit
-00035d b93f                      	out SPDR, r19
-00035e d018                      	rcall waitTransmit
-00035f 9508                      	ret
+000515 e000                      	ldi r16, 0
+000516 b90f                      	out SPDR, r16
+000517 d01a                      	rcall waitTransmit
+000518 b93f                      	out SPDR, r19
+000519 d018                      	rcall waitTransmit
+00051a 9508                      	ret
                                  
                                  ; read a byte into [r19] (no packet control)
                                  readData:
-000360 e400                      	ldi r16, $40
-000361 b90f                      	out SPDR, r16
-000362 d014                      	rcall waitTransmit
+00051b e400                      	ldi r16, $40
+00051c b90f                      	out SPDR, r16
+00051d d014                      	rcall waitTransmit
                                  	;sbi SPSR, SPIF
-000363 e000                      	ldi r16, $00
-000364 b90f                      	out SPDR, r16
-000365 d011                      	rcall waitTransmit
-000366 b13f                      	in r19, SPDR
-000367 9508                      	ret
+00051e e000                      	ldi r16, $00
+00051f b90f                      	out SPDR, r16
+000520 d011                      	rcall waitTransmit
+000521 b13f                      	in r19, SPDR
+000522 9508                      	ret
                                  
                                  
                                  ; Read register [r20] into [r19]
                                  readRegister:
-000368 dfe9                      	rcall writeCommand
-000369 d01b                      	rcall startPacket
-00036a dff5                      	rcall readData
-00036b d00e                      	rcall endPacket
-00036c 9508                      	ret
+000523 dfe9                      	rcall writeCommand
+000524 d01b                      	rcall startPacket
+000525 dff5                      	rcall readData
+000526 d00e                      	rcall endPacket
+000527 9508                      	ret
                                  	
                                  readStatus:
-00036d d017                      	rcall startPacket
-00036e ec00                      	ldi r16, 0b11000000
-00036f b90f                      	out SPDR, r16
-000370 d006                      	rcall waitTransmit
-000371 e000                      	ldi r16, $00
-000372 b90f                      	out SPDR, r16
-000373 d003                      	rcall waitTransmit
-000374 b13f                      	in r19, SPDR
-000375 d004                      	rcall endPacket
-000376 9508                      	ret
+000528 d017                      	rcall startPacket
+000529 ec00                      	ldi r16, 0b11000000
+00052a b90f                      	out SPDR, r16
+00052b d006                      	rcall waitTransmit
+00052c e000                      	ldi r16, $00
+00052d b90f                      	out SPDR, r16
+00052e d003                      	rcall waitTransmit
+00052f b13f                      	in r19, SPDR
+000530 d004                      	rcall endPacket
+000531 9508                      	ret
                                  
                                  
                                  waitTransmit:
-000377 9b77                      	sbis SPSR, SPIF
-000378 cffe                      	rjmp waitTransmit
-000379 9508                      	ret
+000532 9b77                      	sbis SPSR, SPIF
+000533 cffe                      	rjmp waitTransmit
+000534 9508                      	ret
                                  
                                  endPacket:
-00037a e101                      	ldi r16, 0b00010001
-00037b bb08                      	out PORTB, r16 ; End packet
-00037c 0000
-00037d 0000
-00037e 0000
-00037f 0000                      	nop nop nop nop
-000380 0000
-000381 0000
-000382 0000
-000383 0000                      	nop nop nop nop
-000384 9508                      	ret
+000535 e101                      	ldi r16, 0b00010001
+000536 bb08                      	out PORTB, r16 ; End packet
+000537 0000
+000538 0000
+000539 0000
+00053a 0000                      	nop nop nop nop
+00053b 0000
+00053c 0000
+00053d 0000
+00053e 0000                      	nop nop nop nop
+00053f 9508                      	ret
                                  
                                  startPacket:
-000385 e100                      	ldi r16, 0b00010000
-000386 bb08                      	out PORTB, r16 ; Start packet
-000387 0000
-000388 0000
-000389 0000
-00038a 0000                      	nop nop nop nop
-00038b 0000
-00038c 0000
-00038d 0000
-00038e 0000                      	nop nop nop nop
-00038f 9508                      	ret
+000540 e100                      	ldi r16, 0b00010000
+000541 bb08                      	out PORTB, r16 ; Start packet
+000542 0000
+000543 0000
+000544 0000
+000545 0000                      	nop nop nop nop
+000546 0000
+000547 0000
+000548 0000
+000549 0000                      	nop nop nop nop
+00054a 9508                      	ret
                                  
                                  ; Write char [r18] to screen
                                  charOut:
-000390 d0e1                      	rcall initTextOut_
-000391 e042                      	ldi r20, $02
-000392 dfbf                      	rcall writeCommand
-000393 dff1                      	rcall startPacket
-000394 2f32                      	mov r19, r18
-000395 dfc4                      	rcall writeData
-000396 dfe3                      	rcall endPacket
-000397 9508                      	ret
+00054b d0e1                      	rcall initTextOut_
+00054c e042                      	ldi r20, $02
+00054d dfbf                      	rcall writeCommand
+00054e dff1                      	rcall startPacket
+00054f 2f32                      	mov r19, r18
+000550 dfc4                      	rcall writeData
+000551 dfe3                      	rcall endPacket
+000552 9508                      	ret
                                  
                                  stringOut:
-000398 d0d9                      	rcall initTextOut_
-000399 e042                      	ldi r20, $02
-00039a dfb7                      	rcall writeCommand
-00039b dfe9                      	rcall startPacket
-00039c e000                      	ldi r16, 0
-00039d b90f                      	out SPDR, r16
-00039e dfd8                      	rcall waitTransmit
+000553 d0d9                      	rcall initTextOut_
+000554 e042                      	ldi r20, $02
+000555 dfb7                      	rcall writeCommand
+000556 dfe9                      	rcall startPacket
+000557 e000                      	ldi r16, 0
+000558 b90f                      	out SPDR, r16
+000559 dfd8                      	rcall waitTransmit
                                  stringLoop_:
-00039f 3020                      	cpi r18, $00
-0003a0 f029                      	breq stringEnd_
-0003a1 9135                      	lpm r19, Z+
-0003a2 b93f                      	out SPDR, r19
-0003a3 dfd3                      	rcall waitTransmit
-0003a4 952a                      	dec r18
-0003a5 cff9                      	rjmp stringLoop_
+00055a 3020                      	cpi r18, $00
+00055b f029                      	breq stringEnd_
+00055c 9135                      	lpm r19, Z+
+00055d b93f                      	out SPDR, r19
+00055e dfd3                      	rcall waitTransmit
+00055f 952a                      	dec r18
+000560 cff9                      	rjmp stringLoop_
                                  stringEnd_:
-0003a6 dfd3                      	rcall endPacket
-0003a7 9508                      	ret
+000561 dfd3                      	rcall endPacket
+000562 9508                      	ret
                                  
                                  cCharOut:
-0003a8 934f
-0003a9 933f
-0003aa 932f
-0003ab e440
-0003ac e830
-0003ad df9f
-0003ae 912f
-0003af 913f
-0003b0 914f                      	REGISTER $40, $80
-0003b1 934f
-0003b2 933f
-0003b3 932f
-0003b4 e441
-0003b5 e030
-0003b6 df96
-0003b7 912f
-0003b8 913f
-0003b9 914f                      	REGISTER $41, $00
-0003ba 934f
-0003bb 933f
-0003bc 932f
-0003bd e640
-0003be e030
-0003bf df8d
-0003c0 912f
-0003c1 913f
-0003c2 914f                      	REGISTER $60, 0
-0003c3 934f
-0003c4 933f
-0003c5 932f
-0003c6 e641
-0003c7 e030
-0003c8 df84
-0003c9 912f
-0003ca 913f
-0003cb 914f                      	REGISTER $61, 0
-0003cc 934f
-0003cd 933f
-0003ce 932f
-0003cf e642
-0003d0 e030
-0003d1 df7b
-0003d2 912f
-0003d3 913f
-0003d4 914f                      	REGISTER $62, 0
-0003d5 934f
-0003d6 933f
-0003d7 932f
-0003d8 e643
-0003d9 e030
-0003da df72
-0003db 912f
-0003dc 913f
-0003dd 914f                      	REGISTER $63, 0
-0003de 934f
-0003df 933f
-0003e0 932f
-0003e1 e644
-0003e2 e037
-0003e3 df69
-0003e4 912f
-0003e5 913f
-0003e6 914f                      	REGISTER $64, 7
-0003e7 934f
-0003e8 933f
-0003e9 932f
-0003ea e645
-0003eb e030
-0003ec df60
-0003ed 912f
-0003ee 913f
-0003ef 914f                      	REGISTER $65, 0
-0003f0 934f
-0003f1 933f
-0003f2 932f
-0003f3 e241
-0003f4 ea30
-0003f5 df57
-0003f6 912f
-0003f7 913f
-0003f8 914f                      	REGISTER $21, 0b10100000
-0003f9 934f
-0003fa 933f
-0003fb 932f
-0003fc e242
-0003fd e03b
-0003fe df4e
-0003ff 912f
-000400 913f
-000401 914f                      	REGISTER $22, 0b00001011
-000402 e042                      	ldi r20, $02
-000403 df4e                      	rcall writeCommand
-000404 df80                      	rcall startPacket
-000405 2f32                      	mov r19, r18
-000406 df53                      	rcall writeData
-000407 df72                      	rcall endPacket
-000408 9508                      	ret
+000563 934f
+000564 933f
+000565 932f
+000566 e440
+000567 e830
+000568 df9f
+000569 912f
+00056a 913f
+00056b 914f                      	REGISTER $40, $80
+00056c 934f
+00056d 933f
+00056e 932f
+00056f e441
+000570 e030
+000571 df96
+000572 912f
+000573 913f
+000574 914f                      	REGISTER $41, $00
+000575 934f
+000576 933f
+000577 932f
+000578 e640
+000579 e030
+00057a df8d
+00057b 912f
+00057c 913f
+00057d 914f                      	REGISTER $60, 0
+00057e 934f
+00057f 933f
+000580 932f
+000581 e641
+000582 e030
+000583 df84
+000584 912f
+000585 913f
+000586 914f                      	REGISTER $61, 0
+000587 934f
+000588 933f
+000589 932f
+00058a e642
+00058b e030
+00058c df7b
+00058d 912f
+00058e 913f
+00058f 914f                      	REGISTER $62, 0
+000590 934f
+000591 933f
+000592 932f
+000593 e643
+000594 e030
+000595 df72
+000596 912f
+000597 913f
+000598 914f                      	REGISTER $63, 0
+000599 934f
+00059a 933f
+00059b 932f
+00059c e644
+00059d e037
+00059e df69
+00059f 912f
+0005a0 913f
+0005a1 914f                      	REGISTER $64, 7
+0005a2 934f
+0005a3 933f
+0005a4 932f
+0005a5 e645
+0005a6 e030
+0005a7 df60
+0005a8 912f
+0005a9 913f
+0005aa 914f                      	REGISTER $65, 0
+0005ab 934f
+0005ac 933f
+0005ad 932f
+0005ae e241
+0005af ea30
+0005b0 df57
+0005b1 912f
+0005b2 913f
+0005b3 914f                      	REGISTER $21, 0b10100000
+0005b4 934f
+0005b5 933f
+0005b6 932f
+0005b7 e242
+0005b8 e03b
+0005b9 df4e
+0005ba 912f
+0005bb 913f
+0005bc 914f                      	REGISTER $22, 0b00001011
+0005bd e042                      	ldi r20, $02
+0005be df4e                      	rcall writeCommand
+0005bf df80                      	rcall startPacket
+0005c0 2f32                      	mov r19, r18
+0005c1 df53                      	rcall writeData
+0005c2 df72                      	rcall endPacket
+0005c3 9508                      	ret
                                  
                                  cStringOut:
-000409 934f
-00040a 933f
-00040b 932f
-00040c e440
-00040d e830
-00040e df3e
-00040f 912f
-000410 913f
-000411 914f                      	REGISTER $40, $80
-000412 934f
-000413 933f
-000414 932f
-000415 e441
-000416 e030
-000417 df35
-000418 912f
-000419 913f
-00041a 914f                      	REGISTER $41, $00
-00041b 934f
-00041c 933f
-00041d 932f
-00041e e640
-00041f e030
-000420 df2c
-000421 912f
-000422 913f
-000423 914f                      	REGISTER $60, 0
-000424 934f
-000425 933f
-000426 932f
-000427 e641
-000428 e030
-000429 df23
-00042a 912f
-00042b 913f
-00042c 914f                      	REGISTER $61, 0
-00042d 934f
-00042e 933f
-00042f 932f
-000430 e642
-000431 e030
-000432 df1a
-000433 912f
-000434 913f
-000435 914f                      	REGISTER $62, 0
-000436 934f
-000437 933f
-000438 932f
-000439 e643
-00043a e030
-00043b df11
-00043c 912f
-00043d 913f
-00043e 914f                      	REGISTER $63, 0
-00043f 934f
-000440 933f
-000441 932f
-000442 e644
-000443 e037
-000444 df08
-000445 912f
-000446 913f
-000447 914f                      	REGISTER $64, 7
-000448 934f
-000449 933f
-00044a 932f
-00044b e645
-00044c e030
-00044d deff
-00044e 912f
-00044f 913f
-000450 914f                      	REGISTER $65, 0
-000451 934f
-000452 933f
-000453 932f
-000454 e241
-000455 ea30
-000456 def6
-000457 912f
-000458 913f
-000459 914f                      	REGISTER $21, 0b10100000
-00045a 934f
-00045b 933f
-00045c 932f
-00045d e242
-00045e e03b
-00045f deed
-000460 912f
-000461 913f
-000462 914f                      	REGISTER $22, 0b00001011
+0005c4 934f
+0005c5 933f
+0005c6 932f
+0005c7 e440
+0005c8 e830
+0005c9 df3e
+0005ca 912f
+0005cb 913f
+0005cc 914f                      	REGISTER $40, $80
+0005cd 934f
+0005ce 933f
+0005cf 932f
+0005d0 e441
+0005d1 e030
+0005d2 df35
+0005d3 912f
+0005d4 913f
+0005d5 914f                      	REGISTER $41, $00
+0005d6 934f
+0005d7 933f
+0005d8 932f
+0005d9 e640
+0005da e030
+0005db df2c
+0005dc 912f
+0005dd 913f
+0005de 914f                      	REGISTER $60, 0
+0005df 934f
+0005e0 933f
+0005e1 932f
+0005e2 e641
+0005e3 e030
+0005e4 df23
+0005e5 912f
+0005e6 913f
+0005e7 914f                      	REGISTER $61, 0
+0005e8 934f
+0005e9 933f
+0005ea 932f
+0005eb e642
+0005ec e030
+0005ed df1a
+0005ee 912f
+0005ef 913f
+0005f0 914f                      	REGISTER $62, 0
+0005f1 934f
+0005f2 933f
+0005f3 932f
+0005f4 e643
+0005f5 e030
+0005f6 df11
+0005f7 912f
+0005f8 913f
+0005f9 914f                      	REGISTER $63, 0
+0005fa 934f
+0005fb 933f
+0005fc 932f
+0005fd e644
+0005fe e037
+0005ff df08
+000600 912f
+000601 913f
+000602 914f                      	REGISTER $64, 7
+000603 934f
+000604 933f
+000605 932f
+000606 e645
+000607 e030
+000608 deff
+000609 912f
+00060a 913f
+00060b 914f                      	REGISTER $65, 0
+00060c 934f
+00060d 933f
+00060e 932f
+00060f e241
+000610 ea30
+000611 def6
+000612 912f
+000613 913f
+000614 914f                      	REGISTER $21, 0b10100000
+000615 934f
+000616 933f
+000617 932f
+000618 e242
+000619 e03b
+00061a deed
+00061b 912f
+00061c 913f
+00061d 914f                      	REGISTER $22, 0b00001011
                                  /*	ldi r20, $02
                                  	rcall writeCommand
                                  	rcall startPacket
@@ -2596,44 +3074,45 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  	rcall startPacket
                                  	rcall writeData
                                  	rcall endPacket*/
-000463 e042                      	ldi r20, $02
-000464 deed                      	rcall writeCommand
-000465 df1f                      	rcall startPacket
-000466 e030                      	ldi r19, 0
-000467 b93f                      	out SPDR, r19
-000468 df0e                      	rcall waitTransmit
+00061e e042                      	ldi r20, $02
+00061f deed                      	rcall writeCommand
+000620 df1f                      	rcall startPacket
+000621 e030                      	ldi r19, 0
+000622 b93f                      	out SPDR, r19
+000623 df0e                      	rcall waitTransmit
                                  cStringLoop_:
-000469 3020                      	cpi r18, $00
-00046a f029                      	breq cStringEnd_
-00046b 9135                      	lpm r19, Z+
-00046c b93f                      	out SPDR, r19
-00046d df09                      	rcall waitTransmit
-00046e 952a                      	dec r18
-00046f cff9                      	rjmp cStringLoop_
+000624 3020                      	cpi r18, $00
+000625 f029                      	breq cStringEnd_
+000626 9131                      	ld r19, Z+
+                                 	;lpm r19, Z+
+000627 b93f                      	out SPDR, r19
+000628 df09                      	rcall waitTransmit
+000629 952a                      	dec r18
+00062a cff9                      	rjmp cStringLoop_
                                  cStringEnd_:
-000470 df09                      	rcall endPacket
-000471 9508                      	ret
+00062b df09                      	rcall endPacket
+00062c 9508                      	ret
                                  
                                  initTextOut_:
-000472 e440                      	ldi r20, $40
-000473 dede                      	rcall writeCommand
-000474 df10                      	rcall startPacket
-000475 deea                      	rcall readData
-000476 df03                      	rcall endPacket
-000477 deda                      	rcall writeCommand
-000478 6830                      	ori r19, $80
-000479 df0b                      	rcall startPacket
-00047a dedf                      	rcall writeData
-00047b defe                      	rcall endPacket
-00047c 934f
-00047d 933f
-00047e 932f
-00047f e241
-000480 e030
-000481 decb
-000482 912f
-000483 913f
-000484 914f                      	REGISTER $21, $00
+00062d e440                      	ldi r20, $40
+00062e dede                      	rcall writeCommand
+00062f df10                      	rcall startPacket
+000630 deea                      	rcall readData
+000631 df03                      	rcall endPacket
+000632 deda                      	rcall writeCommand
+000633 6830                      	ori r19, $80
+000634 df0b                      	rcall startPacket
+000635 dedf                      	rcall writeData
+000636 defe                      	rcall endPacket
+000637 934f
+000638 933f
+000639 932f
+00063a e241
+00063b e030
+00063c decb
+00063d 912f
+00063e 913f
+00063f 914f                      	REGISTER $21, $00
                                  /*	ldi r20, $21
                                  	rcall writeCommand
                                  	rcall startPacket
@@ -2645,97 +3124,97 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  	rcall startPacket
                                  	rcall writeData
                                  	rcall endPacket*/
-000485 934f
-000486 933f
-000487 932f
-000488 e640
-000489 e030
-00048a dec2
-00048b 912f
-00048c 913f
-00048d 914f                      	REGISTER $60, 0
-00048e 934f
-00048f 933f
-000490 932f
-000491 e641
-000492 e030
-000493 deb9
-000494 912f
-000495 913f
-000496 914f                      	REGISTER $61, 0
-000497 934f
-000498 933f
-000499 932f
-00049a e642
-00049b e030
-00049c deb0
-00049d 912f
-00049e 913f
-00049f 914f                      	REGISTER $62, 0
-0004a0 934f
-0004a1 933f
-0004a2 932f
-0004a3 e643
-0004a4 e030
-0004a5 dea7
-0004a6 912f
-0004a7 913f
-0004a8 914f                      	REGISTER $63, 0
-0004a9 934f
-0004aa 933f
-0004ab 932f
-0004ac e644
-0004ad e037
-0004ae de9e
-0004af 912f
-0004b0 913f
-0004b1 914f                      	REGISTER $64, 7
-0004b2 934f
-0004b3 933f
-0004b4 932f
-0004b5 e645
-0004b6 e030
-0004b7 de95
-0004b8 912f
-0004b9 913f
-0004ba 914f                      	REGISTER $65, 0
-0004bb 934f
-0004bc 933f
-0004bd 932f
-0004be e242
-0004bf e03b
-0004c0 de8c
-0004c1 912f
-0004c2 913f
-0004c3 914f                      	REGISTER $22, 0b00001011
-0004c4 934f
-0004c5 933f
-0004c6 932f
-0004c7 e441
-0004c8 e030
-0004c9 de83
-0004ca 912f
-0004cb 913f
-0004cc 914f                      	REGISTER $41, 0
-0004cd 934f
-0004ce 933f
-0004cf 932f
-0004d0 e24e
-0004d1 e030
-0004d2 de7a
-0004d3 912f
-0004d4 913f
-0004d5 914f                      	REGISTER $2E, 0
+000640 934f
+000641 933f
+000642 932f
+000643 e640
+000644 e030
+000645 dec2
+000646 912f
+000647 913f
+000648 914f                      	REGISTER $60, 0
+000649 934f
+00064a 933f
+00064b 932f
+00064c e641
+00064d e030
+00064e deb9
+00064f 912f
+000650 913f
+000651 914f                      	REGISTER $61, 0
+000652 934f
+000653 933f
+000654 932f
+000655 e642
+000656 e030
+000657 deb0
+000658 912f
+000659 913f
+00065a 914f                      	REGISTER $62, 0
+00065b 934f
+00065c 933f
+00065d 932f
+00065e e643
+00065f e030
+000660 dea7
+000661 912f
+000662 913f
+000663 914f                      	REGISTER $63, 0
+000664 934f
+000665 933f
+000666 932f
+000667 e644
+000668 e037
+000669 de9e
+00066a 912f
+00066b 913f
+00066c 914f                      	REGISTER $64, 7
+00066d 934f
+00066e 933f
+00066f 932f
+000670 e645
+000671 e030
+000672 de95
+000673 912f
+000674 913f
+000675 914f                      	REGISTER $65, 0
+000676 934f
+000677 933f
+000678 932f
+000679 e242
+00067a e03b
+00067b de8c
+00067c 912f
+00067d 913f
+00067e 914f                      	REGISTER $22, 0b00001011
+00067f 934f
+000680 933f
+000681 932f
+000682 e441
+000683 e030
+000684 de83
+000685 912f
+000686 913f
+000687 914f                      	REGISTER $41, 0
+000688 934f
+000689 933f
+00068a 932f
+00068b e24e
+00068c e030
+00068d de7a
+00068e 912f
+00068f 913f
+000690 914f                      	REGISTER $2E, 0
                                  	;cursor
                                  	;REGISTER $2A, $00
                                  	;REGISTER $2B, $00
                                  	;REGISTER $2C, $00
                                  	;REGISTER $2D, $00
-0004d6 9508                      	ret
+000691 9508                      	ret
                                  
                                  
                                  addChar:
-0004d7 933f                      	push r19
+000692 933f                      	push r19
                                  /*	ldi r20, $40
                                  	rcall writeCommand
                                  	rcall startPacket
@@ -2746,117 +3225,134 @@ AVRASM ver. 2.2.6  \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\space
                                  	rcall startPacket
                                  	rcall writeData
                                  	rcall endPacket*/
-0004d8 934f
-0004d9 933f
-0004da 932f
-0004db e440
-0004dc e030
-0004dd de6f
-0004de 912f
-0004df 913f
-0004e0 914f                      	REGISTER $40, 0
-0004e1 934f
-0004e2 933f
-0004e3 932f
-0004e4 e241
-0004e5 e030
-0004e6 de66
-0004e7 912f
-0004e8 913f
-0004e9 914f                      	REGISTER $21, 0
-0004ea 934f
-0004eb 933f
-0004ec 932f
-0004ed e441
-0004ee e034
-0004ef de5d
-0004f0 912f
-0004f1 913f
-0004f2 914f                      	REGISTER $41, 0b000000100
-0004f3 e243                      	ldi r20, $23
-0004f4 913f                      	pop r19
-0004f5 de57                      	rcall writeRegister
-0004f6 e042                      	ldi r20, $02
-0004f7 de5a                      	rcall writeCommand
-0004f8 e120                      	ldi r18, 16
-0004f9 de8b                      	rcall startPacket
-0004fa e000                      	ldi r16, 0
-0004fb b90f                      	out SPDR, r16
-0004fc de7a                      	rcall waitTransmit
-0004fd dea1                      	rcall stringLoop_
-0004fe 9508                      	ret
+000693 934f
+000694 933f
+000695 932f
+000696 e440
+000697 e030
+000698 de6f
+000699 912f
+00069a 913f
+00069b 914f                      	REGISTER $40, 0
+00069c 934f
+00069d 933f
+00069e 932f
+00069f e241
+0006a0 e030
+0006a1 de66
+0006a2 912f
+0006a3 913f
+0006a4 914f                      	REGISTER $21, 0
+0006a5 934f
+0006a6 933f
+0006a7 932f
+0006a8 e441
+0006a9 e034
+0006aa de5d
+0006ab 912f
+0006ac 913f
+0006ad 914f                      	REGISTER $41, 0b000000100
+0006ae e243                      	ldi r20, $23
+0006af 913f                      	pop r19
+0006b0 de57                      	rcall writeRegister
+0006b1 e042                      	ldi r20, $02
+0006b2 de5a                      	rcall writeCommand
+0006b3 e120                      	ldi r18, 16
+0006b4 de8b                      	rcall startPacket
+0006b5 e000                      	ldi r16, 0
+0006b6 b90f                      	out SPDR, r16
+0006b7 de7a                      	rcall waitTransmit
+0006b8 dea1                      	rcall stringLoop_
+0006b9 9508                      	ret
                                  
                                  .INCLUDE "variablesAndByteTables.asm"
                                  
-0004ff 2020
-000500 2020
-000501 2020
-000502 2020
-000503 2020
-000504 2020
+0006ba 2020
+0006bb 2020
+0006bc 2020
+0006bd 2020
+0006be 2020
+0006bf 2020
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm(2): warning: .cseg .db misalignment - padding zero byte
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(203): '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm' included form here
-000505 0020                      .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(477): '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm' included form here
+0006c0 0020                      .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
                                  
                                  ro:
-000506 2020
-000507 2020
-000508 2020
-000509 2020
-00050a 2020
-00050b 2020
+0006c1 2020
+0006c2 2020
+0006c3 2020
+0006c4 2020
+0006c5 2020
+0006c6 2020
 \\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm(5): warning: .cseg .db misalignment - padding zero byte
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(203): '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm' included form here
-00050c 0020                      .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(477): '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm' included form here
+0006c7 0020                      .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
                                  
-                                 foe:
-00050d 0504
-00050e 0504
-00050f 0504
-000510 0504
-000511 0504
-000512 0504
-000513 0504
-000514 0504
-000515 0504
-000516 0504                      .db $04, $05, $04, $05, $04, $05, $04, $05, $04, $05, $04, $05, $04, $05, $04, $05, $04, $05, $04, $05
                                  
+                                 .dseg
+                                 foe1:
+000100                           .byte 20
+                                 
+                                 foe2:
+000114                           .byte 20
+                                 
+                                 foe3:
+000128                           .byte 20
+                                 
+                                 foe4:
+00013c                           .byte 20
+                                 
+                                 foePoint:
+000150                           .byte 8
+                                 
+000158                           rockets: .byte 8
+                                 /*rockets2: .byte 1
+                                 rockets3: .byte 1
+                                 rockets4: .byte 1
+                                 rockets5: .byte 1
+                                 rockets6: .byte 1*/
+000160                           sixH: .byte 1
+000161                           sixL: .byte 1
+                                 
+                                 .cseg 
                                  blnkRow:
-000517 2020
-000518 2020
-000519 2020
-00051a 2020
-00051b 2020
-00051c 2020
-00051d 2020
-00051e 2020
-00051f 2020
-000520 2020
-000521 2020
-000522 2020
-000523 2020
-000524 2020
-000525 2020
-000526 2020
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm(11): warning: .cseg .db misalignment - padding zero byte
-\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(203): '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm' included form here
-000527 0020                      .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
+0006c8 2020
+0006c9 2020
+0006ca 2020
+0006cb 2020
+0006cc 2020
+0006cd 2020
+0006ce 2020
+0006cf 2020
+0006d0 2020
+0006d1 2020
+0006d2 2020
+0006d3 2020
+0006d4 2020
+0006d5 2020
+0006d6 2020
+0006d7 2020
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm(35): warning: .cseg .db misalignment - padding zero byte
+\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\mainNew.asm(477): '\\icnas4.cc.ic.ac.uk\cbl15\3rd year lab\Microprocessors\spaceInvaders\spaceInvaders\variablesAndByteTables.asm' included form here
+0006d8 0020                      .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
                                  
+                                 rocket:
+0006d9 0100                      .db $00, $01
                                  
                                  uDed:
-000528 6f43
-000529 676e
-00052a 6172
-00052b 7574
-00052c 616c
-00052d 6974
-00052e 6e6f
-00052f 2173
-000530 5920
-000531 756f
-000532 6420
-000533 6569
-000534 2e64                      .db "Congratulations! You died."
+0006da 6f43
+0006db 676e
+0006dc 6172
+0006dd 7574
+0006de 616c
+0006df 6974
+0006e0 6e6f
+0006e1 2173
+0006e2 5920
+0006e3 756f
+0006e4 6420
+0006e5 6569
+0006e6 2e64                      .db "Congratulations! You died."
                                  
                                  .def loLength = r18
                                  .def roLength = r19
@@ -2882,41 +3378,41 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega128" register use summary:
-x  :   0 y  :   0 z  :   2 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   3 
+x  :   2 y  :  26 z  :  13 r0 :   1 r1 :   1 r2 :   0 r3 :   0 r4 :   4 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  54 r17:   6 r18: 212 r19: 266 r20: 257 
-r21:   6 r22:   2 r23:  10 r24:   4 r25:   6 r26:  20 r27:  15 r28:   0 
-r29:   0 r30:  15 r31:  15 
-Registers used: 16 out of 35 (45.7%)
+r13:   0 r14:   0 r15:   0 r16: 103 r17:  34 r18: 249 r19: 307 r20: 291 
+r21:   8 r22:  11 r23:  10 r24:   4 r25:  11 r26:  28 r27:  21 r28:   7 
+r29:   7 r30:  48 r31:  47 
+Registers used: 22 out of 35 (62.9%)
 
 "ATmega128" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   2 adiw  :   0 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   2 add   :   6 adiw  :  11 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :  12 brge  :   3 brhc  :   0 
-brhs  :   0 brid  :   0 brie  :   0 brlo  :   1 brlt  :   0 brmi  :   0 
-brne  :   5 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :  15 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   8 brlt  :   0 brmi  :   0 
+brne  :  10 brpl  :   0 brsh  :   1 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :  15 cbi   :   0 cbr   :   3 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   1 cp    :   0 cpc   :   0 
-cpi   :  16 cpse  :   0 dec   :   5 elpm  :   0 eor   :   0 fmul  :   0 
-fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 in    :   5 inc   :   5 
-jmp   :   2 ld    :   0 ldd   :   0 ldi   : 227 lds   :   0 lpm   :   2 
-lsl   :   0 lsr   :   0 mov   :  18 movw  :   0 mul   :   0 muls  :   0 
-mulsu :   0 neg   :   0 nop   :  38 or    :   0 ori   :   1 out   :  31 
-pop   : 276 push  : 276 rcall : 189 ret   :  37 reti  :  25 rjmp  :  12 
+clt   :   0 clv   :   0 clz   :   0 com   :   1 cp    :   1 cpc   :   0 
+cpi   :  26 cpse  :   0 dec   :   6 elpm  :   0 eor   :   0 fmul  :   0 
+fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 in    :   5 inc   :   7 
+jmp   :   5 ld    :   5 ldd   :   0 ldi   : 289 lds   :   8 lpm   :   1 
+lsl   :   1 lsr   :   3 mov   :  29 movw  :   0 mul   :   1 muls  :   0 
+mulsu :   0 neg   :   0 nop   :  38 or    :   0 ori   :   1 out   :  32 
+pop   : 340 push  : 340 rcall : 207 ret   :  51 reti  :  25 rjmp  :  20 
 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 
-sbis  :   1 sbiw  :   5 sbr   :   0 sbrc  :   1 sbrs  :   0 sec   :   0 
+sbis  :   1 sbiw  :   9 sbr   :   3 sbrc  :   4 sbrs  :   1 sec   :   0 
 seh   :   0 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 
-sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 
-sts   :   0 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
+sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :  20 std   :   0 
+sts   :   4 sub   :   3 subi  :   3 swap  :   0 tst   :   0 wdr   :   0 
 
-Instructions used: 27 out of 114 (23.7%)
+Instructions used: 43 out of 114 (37.7%)
 
 "ATmega128" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000a6a   2398    108   2506  131072   1.9%
-[.dseg] 0x000100 0x000100      0      0      0    4096   0.0%
+[.cseg] 0x000000 0x000dce   3188    186   3374  131072   2.6%
+[.dseg] 0x000100 0x000162      0     98     98    4096   2.4%
 [.eseg] 0x000000 0x000000      0      0      0    4096   0.0%
 
 Assembly complete, 0 errors, 3 warnings

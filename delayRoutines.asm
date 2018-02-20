@@ -1,4 +1,4 @@
-#define debugtime
+;#define debugtime
 DEL15ms:push r26
 		push r27
         ldi XH, HIGH(19997)

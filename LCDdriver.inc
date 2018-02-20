@@ -12,6 +12,17 @@
 	pop r19
 	pop r20
 .ENDMACRO
+.MACRO REGISTERR
+	push r20
+	push r19
+	push r18
+	ldi r20, @0
+	mov r19, @1
+	rcall writeRegister
+	pop r18
+	pop r19
+	pop r20
+.ENDMACRO
 ; WRITESTRING [0],[1] writes string [0] of length [1](reg)
 .MACRO WRITESTRING
 	push r20
@@ -74,4 +85,7 @@
 	pop r19
 	pop r20
 .ENDMACRO
+jmp LCDskip
+.INCLUDE "char.asm"
+LCDskip:
 #endif

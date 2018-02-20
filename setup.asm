@@ -110,4 +110,9 @@ Init:
 	brge pc+2
 	rjmp @0
 .ENDMACRO
+
+.MACRO cge
+	brlo pc+3
+	call @0
+.ENDMACRO
 	

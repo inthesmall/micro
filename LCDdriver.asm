@@ -276,7 +276,8 @@ cStringOut:
 cStringLoop_:
 	cpi r18, $00
 	breq cStringEnd_
-	lpm r19, Z+
+	ld r19, Z+
+	;lpm r19, Z+
 	out SPDR, r19
 	rcall waitTransmit
 	dec r18
