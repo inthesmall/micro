@@ -37,7 +37,7 @@ clrLCDLoop:
 	rcall startPacket
 	rcall readData
 	rcall endPacket
-	sbrc r19, 7
+	sbrc r19, 7 ;Poll register $8E until the display has finished clearing
 	rjmp clrLCDLoop
 	pop r18
 	pop r19
@@ -72,14 +72,14 @@ setupLCD:
 	REGISTER $04, $81 ; Pixel clock
 	rcall DEL1ms
 
-	; Horizonatal
+	; Horizonatal settings
 	REGISTER $14, $63
 	REGISTER $15, $00
 	REGISTER $16, $03
 	REGISTER $17, $03
 	REGISTER $18, $0B
 
-	; Vertical
+	; Vertical settings
 	REGISTER $19, $DF
 	REGISTER $1A, $01
 	REGISTER $1B, $1F ;$20
@@ -88,7 +88,7 @@ setupLCD:
 	REGISTER $1E, $00
 	REGISTER $1F, $01
 
-	; Active window
+	; Active window settings
 	REGISTER $30, $00
 	REGISTER $31, $00
 	REGISTER $34, $1F
@@ -163,63 +163,52 @@ readRegister:
 	rcall readData
 	rcall endPacket
 	ret
-	
-readStatus:
-	rcall startPacket
-	ldi r16, 0b11000000
-	out SPDR, r16
-	rcall waitTransmit
-	ldi r16, $00
-	out SPDR, r16
-	rcall waitTransmit
-	in r19, SPDR
-	rcall endPacket
-	ret
 
 
 waitTransmit:
 	sbis SPSR, SPIF
-	rjmp waitTransmit
+	rjmp waitTransmit ; Poll until SPI transaction complete
 	ret
 
 endPacket:
-	ldi r16, 0b00010001
+	ldi r16, 0b00010001 ; Sets SS* high 
 	out PORTB, r16 ; End packet
-	nop nop nop nop
+	nop nop nop nop ; Wait a while, just in case
 	nop nop nop nop
 	ret
 
 startPacket:
-	ldi r16, 0b00010000
+	ldi r16, 0b00010000 ;Sets SS* low
 	out PORTB, r16 ; Start packet
-	nop nop nop nop
+	nop nop nop nop ; Wait a while, just in case
 	nop nop nop nop
 	ret
 
 ; Write char [r18] to screen
 charOut:
-	rcall initTextOut_
+	rcall initTextOut_ ; Load text-writing settings into registers
 	ldi r20, $02
-	rcall writeCommand
+	rcall writeCommand ; Start data-write mode
 	rcall startPacket
 	mov r19, r18
-	rcall writeData
+	rcall writeData ; Write the character out
 	rcall endPacket
 	ret
 
+; write out a string of characters from a byte table, length [r18], starting at [Z]
 stringOut:
-	rcall initTextOut_
+	rcall initTextOut_ ; Load text-writing settings into registers
 	ldi r20, $02
-	rcall writeCommand
+	rcall writeCommand  ; Start data-write mode
 	rcall startPacket
 	ldi r16, 0
-	out SPDR, r16
+	out SPDR, r16 ; Send data-write packet
 	rcall waitTransmit
 stringLoop_:
-	cpi r18, $00
+	cpi r18, $00 ; Check vs string length
 	breq stringEnd_
-	lpm r19, Z+
-	out SPDR, r19
+	lpm r19, Z+ ; Load character to write
+	out SPDR, r19 ; Write character
 	rcall waitTransmit
 	dec r18
 	rjmp stringLoop_
@@ -227,58 +216,32 @@ stringEnd_:
 	rcall endPacket
 	ret
 
+; Write out a custom character (CGRAM)
 cCharOut:
-	REGISTER $40, $80
-	REGISTER $41, $00
-	REGISTER $60, 0
-	REGISTER $61, 0
-	REGISTER $62, 0
-	REGISTER $63, 0
-	REGISTER $64, 7
-	REGISTER $65, 0
-	REGISTER $21, 0b10100000
-	REGISTER $22, 0b00001011
+	rcall initCTextOut_ ; Set registers to write text from CGRAM
 	ldi r20, $02
-	rcall writeCommand
+	rcall writeCommand ; Enter data-write mode
 	rcall startPacket
 	mov r19, r18
-	rcall writeData
+	rcall writeData ; Write character
 	rcall endPacket
 	ret
 
+; write out a string of custom characters (CGRAM) from a byte table in SRAM, 
+; length [r18], starting at [Z]
 cStringOut:
-	REGISTER $40, $80
-	REGISTER $41, $00
-	REGISTER $60, 0
-	REGISTER $61, 0
-	REGISTER $62, 0
-	REGISTER $63, 0
-	REGISTER $64, 7
-	REGISTER $65, 0
-	REGISTER $21, 0b10100000
-	REGISTER $22, 0b00001011
-/*	ldi r20, $02
-	rcall writeCommand
-	rcall startPacket
-	rcall readData
-	rcall endPacket
-	sbr r19, 7
-	rcall writeCommand
-	rcall startPacket
-	rcall writeData
-	rcall endPacket*/
+	rcall initCTextOut_ ; Set registers to write text from CGRAM
 	ldi r20, $02
-	rcall writeCommand
+	rcall writeCommand ; Enter data-write mode
 	rcall startPacket
 	ldi r19, 0
-	out SPDR, r19
+	out SPDR, r19 ; Send data-write packet
 	rcall waitTransmit
 cStringLoop_:
-	cpi r18, $00
+	cpi r18, $00 ; Check vs length of string
 	breq cStringEnd_
-	ld r19, Z+
-	;lpm r19, Z+
-	out SPDR, r19
+	ld r19, Z+ ; Load character
+	out SPDR, r19 ; Write character
 	rcall waitTransmit
 	dec r18
 	rjmp cStringLoop_
@@ -286,71 +249,61 @@ cStringEnd_:
 	rcall endPacket
 	ret
 
+; Set registers for writing text from CGROM
 initTextOut_:
-	ldi r20, $40
+	ldi r20, $40 
 	rcall writeCommand
 	rcall startPacket
 	rcall readData
 	rcall endPacket
 	rcall writeCommand
-	ori r19, $80
+	ori r19, $80 ; set bit 7 in $40 (text mode)
 	rcall startPacket
 	rcall writeData
 	rcall endPacket
-	REGISTER $21, $00
-/*	ldi r20, $21
-	rcall writeCommand
-	rcall startPacket
-	rcall readData
-	rcall endPacket
-	cbr r19, 7
-	cbr r19, 5
-	rcall writeCommand
-	rcall startPacket
-	rcall writeData
-	rcall endPacket*/
-	REGISTER $60, 0
+	REGISTER $21, $00 ; Select CGROM
+	REGISTER $60, 0 ; Black background
 	REGISTER $61, 0
 	REGISTER $62, 0
-	REGISTER $63, 0
-	REGISTER $64, 7
+	REGISTER $63, 0 ; Green foreground
+	REGISTER $64, 7 
 	REGISTER $65, 0
-	REGISTER $22, 0b00001011
-	REGISTER $41, 0
-	REGISTER $2E, 0
-	;cursor
-	;REGISTER $2A, $00
-	;REGISTER $2B, $00
-	;REGISTER $2C, $00
-	;REGISTER $2D, $00
+	REGISTER $22, 0b00001011 ; Scale 3x horizontally, 4x vertically
+	REGISTER $41, 0 ; Choose screen as write destination
+	REGISTER $2E, 0 ; zero gap between characters
 	ret
 
+; Set registers for writing text from CGRAM
+initCTextOut_:
+	REGISTER $40, $80 ; Text mode
+	REGISTER $41, $00 ; write to screen
+	REGISTER $60, 0 ; black background
+	REGISTER $61, 0
+	REGISTER $62, 0
+	REGISTER $63, 0 ; green foreground
+	REGISTER $64, 7
+	REGISTER $65, 0
+	REGISTER $21, 0b10100000 ; Select CGRAM
+	REGISTER $22, 0b00001011 ; Scale 3x horizontally, 4x vertically
+	ret
 
+; Create a custom character given by bytetable in program memory
+; with starting address [Z] with char code [r19]
 addChar:
 	push r19
-/*	ldi r20, $40
-	rcall writeCommand
-	rcall startPacket
-	rcall readData
-	rcall endPacket
-	rcall writeCommand
-	cbr r19, 7
-	rcall startPacket
-	rcall writeData
-	rcall endPacket*/
-	REGISTER $40, 0
-	REGISTER $21, 0
-	REGISTER $41, 0b000000100
+	REGISTER $40, 0 ; Have to exit text mode before writing to CGRAM
+	REGISTER $21, 0 ; Cannot read from CGRAM when writing to it
+	REGISTER $41, 0b000000100 ; Write to CGRAM
 	ldi r20, $23
 	pop r19
-	rcall writeRegister
+	rcall writeRegister ; Write out the chosen character code
 	ldi r20, $02
-	rcall writeCommand
-	ldi r18, 16
+	rcall writeCommand ; Enter data-write mode
+	ldi r18, 16 ; A character is 16 bytes
 	rcall startPacket
 	ldi r16, 0
-	out SPDR, r16
+	out SPDR, r16 ; Send data-write packet
 	rcall waitTransmit
-	rcall stringLoop_
+	rcall stringLoop_ ; We can reuse the code which writes out a string
 	ret
 

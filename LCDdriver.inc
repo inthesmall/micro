@@ -1,6 +1,6 @@
 #ifndef LCD_DRIVER_INC
 #define LCD_DRIVER_INC
-; REGISTER [0],[1] writes [1] to [0]
+; REGISTER [0],[1] writes [1] to LCD register [0]
 .MACRO REGISTER
 	push r20
 	push r19
@@ -12,6 +12,7 @@
 	pop r19
 	pop r20
 .ENDMACRO
+; REGISTERR [0],[1r] writes [1r] to LCD register [0],  where [1r] is a value stored in a register
 .MACRO REGISTERR
 	push r20
 	push r19
@@ -23,7 +24,7 @@
 	pop r19
 	pop r20
 .ENDMACRO
-; WRITESTRING [0],[1] writes string [0] of length [1](reg)
+; WRITESTRING [0],[1r] writes string [0] of length [1r](register)
 .MACRO WRITESTRING
 	push r20
 	push r19
@@ -47,7 +48,7 @@
 	pop r19
 	pop r20
 .ENDMACRO
-; WRITECSTRING [0],[1] writes string [0] of length [1](reg) using custom characters
+; WRITECSTRING [0],[1r] writes string [0] of length [1r](register) using custom characters
 .MACRO WRITECSTRING
 	push r20
 	push r19
