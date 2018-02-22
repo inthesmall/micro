@@ -1,33 +1,97 @@
 .INCLUDE "setup.asm"
+
+; I2C slave write address 
+.equ SLAW = $52
+; I2C slave read address
+.equ SLAR = $53
+
+; Set I2C frequency to about 330kHz
 ldi r16, 1
 out TWBR, r16
-ldi r16, 0b01000100 ;TWEA=1 TWIE=0 TWEN=1
+
+; Enable ack, Enable TWI(I2C), Disable interupts
+ldi r16, 0b01000100 ;TWEA=1 TWEN=1 TWIE=0
 out TWCR, r16
 
 
 
 
-in r16, TWCR
-sbr r16, (1<<5)
-out TWCR, r16
-rcall waitICC
-;check status reguster to check start sent
-in r16, TWCR
-cbr r16 (1<<5)
-out TWCR, r16
-;write address+mode
-    ;load address (high then low) into DR
-    ;Set bit 7 to one to initaite
-rcall waitICC
-;Check status register. Should see send SLA+R/W, ack set 
-;write data
-    ;load data into DR
-    ;set bit 7 to one to initatiate
-;check status reg to see data sent and ack set
-in r16, TWCR
-sbr r16, (1<<4)
-out TWCR, r16 ;send stop
-rcall waitICC
+writeICC:
+	; Start
+	in r16, TWCR
+	sbr r16, (1<<7)
+	sbr r16, (1<<5)
+	out TWCR, r16
+	rcall waitICC
+
+
+	; Check status register to check start sent
+	ldi r16, TWSR
+	andi r16, $F8 ; only care about most significant 5 bits
+	cpi r16, $08 ; Start sent status code
+	cne ICCNoStart ; call error handler
+
+
+	;write address+mode
+	ldi r16, SLAW
+	out TWDR, r16 ;load address into DR
+		; Clear the start and start transmission
+	in r16, TWCR
+	sbr r16, (1<<7)
+	cbr r16, (1<<5)
+	out TWCR, r16
+	rcall waitICC
+
+
+	;Check status register. Should see send SLA+R/W, ack set
+	in r16, TWSR
+	andi r16, $F8
+	cpi r16, $18 ; SLAW transmitted, ACK code
+	cne ICCSLAWNAK
+
+
+	;write register
+		; load register high into DR
+	out TWDR, r21
+	in r16, TWCR
+	sbr r16, (1<<7)
+	out TWCR, r16
+	rcall waitICC
+		; check status register
+	in r16, TWSR
+	andi r16, $F8
+	cpi r16, $28 ; Data transmitted, ACK code
+	cne ICCrhighNAK
+		; load register low into DR
+	out TWDR, r20
+	in r16, TWCR
+	sbr r16, (1<<7)
+	out TWCR, r16
+	rcall waitICC
+		; check status register
+	in r16, TWSR
+	andi r16, $F8
+	cpi r16, $28 ; Data transmitted, ACK code
+	cne ICCrlowNAK
+		; load data into DR
+	out TWDR, r19
+	in r16, TWCR
+	sbr r16, (1<<7)
+	out TWCR, r16
+	rcall waitICC
+		; check status register
+	in r16, TWSR
+	andi r16, $F8
+	cpi r16, $28 ; Data transmitted, ACK code
+	cne ICCdataNAK
+
+
+	; send stop
+	in r16, TWCR
+	sbr r16, (1<<7)
+	sbr r16, (1<<4)
+	out TWCR, r16
+	ret
 
 
 waitICC:
@@ -36,7 +100,7 @@ waitICC:
     rjmp waitICC
     ret
 
-
+; We have to write these because ST says so, but they won't tell us what they do
     ICCWRITE 0x0207,0x01
     ICCWRITE 0x0208,0x01
     ICCWRITE 0x0096,0x00
@@ -68,6 +132,19 @@ waitICC:
     ICCWRITE 0x01a7,0x1f
     ICCWRITE 0x0030,0x00
 
+; Set sampling averging period to 4.3ms to reduce noise
+	ICCWRITE $010A, $30
+; Perform temperature calibration every 255 measurements
+	ICCWRITE $0031, $FF
+; Set to measure range every 100ms when in continuous mode
+	ICCWRITE $001B, $09
+; To set up interups, write to $0014. $00=off $01=Level low
+; $02=Level high $03=Out of window $04=New sample ready
+; Enable the results buffer and set it to store range
+	ICCWRITE $0012, $03
+; One off temperature calibration to get us started
+	ICCWRITE $002E, $01
+
 .MACRO ICCWRITE
     push r16
     push r18
@@ -77,7 +154,7 @@ waitICC:
     ldi r20, low(@0)
     ldi r21, high(@0)
     ldi r19, @1
-    call writeicc
+    call writeICC
     pop r21
     pop r20
     pop r19
