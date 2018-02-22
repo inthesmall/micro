@@ -1,4 +1,5 @@
 ;#define debugtime
+
 DEL15ms:push r26
 		push r27
         ldi XH, HIGH(19997)
@@ -49,12 +50,14 @@ COUNT3:
 BigDel:
         rcall Del49ms
 #ifndef debugtime
+		cpi writeFlag, $80
+		jge delEnd
         rcall Del49ms
         rcall Del49ms
 	    rcall Del49ms
         rcall Del49ms
 #endif
-        ret
+delEnd: ret
 ;
 BiglyDel:   rcall BigDel
 			rcall BigDel

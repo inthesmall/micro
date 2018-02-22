@@ -1,4 +1,4 @@
-		jmp Init
+ 		jmp Init
 		reti		                 
 		nop			; Vector Addresses are 2 words apart
 		reti			; External 0 interrupt  Vector 
@@ -80,7 +80,7 @@ Init:
 	out TCCR0, r16		; Timer - PRESCALE TCK0 BY 256
 						; (devide the 8 Mhz clock by 256)
 						; clear timer on OCR0 match
-	ldi r16,$9C			; load OCR0 with n=78
+	ldi r16,$FF			; load OCR0 with n=1024
 	out OCR0,r16		; The counter will go every
                            ; n*256*125 nsec
 
@@ -115,4 +115,7 @@ Init:
 	brlo pc+3
 	call @0
 .ENDMACRO
-	
+.MACRO ceq
+   brne pc+3
+   call @0
+.ENDMACRO

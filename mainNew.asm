@@ -14,6 +14,7 @@ CREATECHAR pl, $02
 CREATECHAR pr, $03
 CREATECHAR al, $04
 CREATECHAR ar, $05
+CREATECHAR bl, $06
 rcall clrLCD
 /*;Rocket:
 WRITECCHAR $00
@@ -35,12 +36,11 @@ ldi compFlag, 0
 Main:
 	rcall initPpl
 	rcall clrLCD
-retPt:
 	rcall menu
-	rcall modeSelect
+play:
 	ldi r17, $00
 	rcall foeLoop
-	rcall deathScreen
+	;rcall deathScreen
 
 	rjmp Main
 
@@ -54,7 +54,7 @@ interruptVector:
 	mov shift, r18
 	pop r23
 	pop r18
-	cpi compFlag, 2
+	cpi compFlag, 4
 	breq movLoop
 	inc compFlag
 	out SREG, r4
@@ -103,6 +103,7 @@ movRend:
 
 shoot:
 	sbr writeFlag, (1<<1)
+	sbr writeFlag, (1<<2)
 	push r30
 	push r31
 	lds ZL, sixL
@@ -196,32 +197,121 @@ initPpl:
 	adiw Y, 1
 	st Y, ZH
 	adiw Y, 1
+	lds r16, score
+	ldi r16, 0
+	sts score, r16
 
 	ret
 
 menu:
-	sbrc writeFlag, 0
-	breq menu1
+	;sbrc writeFlag, 0
+	;jeq menu1
+	;sbr writeFlag, (1<<0)	
+	push r16
+	ldi r16, 0
+	cbr writeFlag, (1<<2)
+	cbr writeFLag, (1<<7)
+menuLoop:
+	rcall clrLCD
+	REGISTER $2A, $00
+	REGISTER $2B, $00
+	REGISTER $2C, $00
+	REGISTER $2D, $00
+	ldi r16, 33
+	WRITESTRING options, r16
 	sbr writeFlag, (1<<0)
-
+	ldi r16, 0
+	sts score, r16
+	call writePlayer
+	call writeRockets
+	cbr writeFlag, (1<<0)
+	call BigDel
+	sbr writeFlag, (1<<0)
+	cpi writeFLag, 5
+	jeq menuComp
+	jmp menuLoop
+menuComp:
+	inc r16
+	cpi r16, 6
+	jlo menuLoop
+	pop r16
+	cpi playerPos, 10
+	jlo play
+	cpi playerPos, 21
+	jlo extraInfo
+	cpi playerPos, 33
+	jlo undefined
 	cbr writeFlag, (1<<0)
 menu1:
 	ret
+
+extraInfo:
+	REGISTER $2A, $00
+	REGISTER $2B, $00
+	REGISTER $2C, $00
+	REGISTER $2D, $00
+	ldi r16, 189
+	WRITESTRING extra, r16
+	call BiglyDel
+	call BiglyDel
+	call BiglyDel
+	call BiglyDel
+	jmp menu
+
+undefined:
+	sbr writeFlag, (1<<7)
+	jmp play
 
 modeSelect:
 
 	ret
 
 deathScreen:
+	REGISTER $2A, $00
+	REGISTER $2B, $00
+	REGISTER $2C, $00
+	REGISTER $2D, $00
+
 	push r16
 	ldi r16, 26
 	WRITESTRING uDed, r16
+	ldi r16, 15
+	REGISTER $2A, $00
+	REGISTER $2B, $00
+	REGISTER $2C, $3D
+	REGISTER $2D, $00
+	WRITESTRING uScore, r16
+	lds r16, score
+	call scorePrint
+	call BiglyDel
 	call BiglyDel
 	pop r16
-	rjmp retPt
+	rjmp Main
 
+winScreen:
+	REGISTER $2A, $00
+	REGISTER $2B, $00
+	REGISTER $2C, $00
+	REGISTER $2D, $00
+	call clrLCD
+	push r16
+	ldi r16, 54
+	WRITESTRING uWin, r16
+	ldi r16, 15
+	REGISTER $2A, $00
+	REGISTER $2B, $00
+	REGISTER $2C, $7D
+	REGISTER $2D, $00
+	WRITESTRING uScore, r16
+	lds r16, score
+	call scorePrint
+	call BiglyDel
+	call BiglyDel
+	pop r16
+	rjmp Main
 
 foeLoop:
+	inc r17
 	inc r17
 run1:
 	rcall screenUpdate
@@ -244,6 +334,33 @@ reverse:
 
 
 ;##### General routines #####
+scorePrint:
+	push r16
+	push r17
+	clr r7
+	clr r8
+calc10:			; count the number of tens
+	ldi r17,$0A	; load r19 with 10
+loop10:
+	sub r16,r17 ; Subtract 10 from the number (only 8 bits needed as <100)
+	brpl next10 ; still positive, keep going
+	breq calc1	; exactly divide by 10
+	add r16,r17	; restore the remainder (less than 10, so 8 bit ok)
+	jmp calc1
+next10:
+	inc r8		; we were able to subtract 10 again, so increment r10
+	jmp loop10
+calc1:
+	mov r7,r16	;at this point r9 has 100’s, r8 has 10’s, and r7 has 1’s
+	ldi r16, $30
+	add r7, r16
+	add r8, r16
+	WRITECHARR r8
+	WRITECHARR r7
+	pop r16
+	pop r17
+	ret
+
 
 screenUpdate:
 	rcall clrLCD
@@ -345,7 +462,6 @@ rockOut:
 	WRITECCHAR $01
 
 rockInc:
-	
 	cpi r22, 6
 	jeq rockEnd
 	sbiw Y, $20
@@ -383,6 +499,8 @@ killComp:
 	ldi XH, HIGH(2*foePoint)
 	ldi XL, LOW(2*foePoint)
 	add XL, r17
+	push r29
+	push r28
 	push r16
 	ldi r16, 0
 	adc r27, r16
@@ -391,6 +509,12 @@ killComp:
 	ld YH, X
 	push r18
 	sub r16, loLength
+	pop r18
+	cpi r16, 20
+	brlo pc+4
+	pop r28
+	pop r29
+	jmp rockOut
 	add YL, r16
 	push r16
 	ldi r16, 0
@@ -399,18 +523,30 @@ killComp:
 	adiw Y, 1
 	push r19
 	ld r19, Y
+
 	cpi r19, $05
 	ceq delAbove
 	cpi r19, $04
 	ceq delRight
-	;if 6 go to rock Out
+	cpi r19, $06
+	brne pc+10
 	pop r19
-	pop r18
 	lsr r17
 	push r18
 	ldi r18, 7
 	add r17, r18
 	pop r18
+	pop r28
+	pop r29
+    rjmp rockOut
+	pop r19
+	lsr r17
+	push r18
+	ldi r18, 7
+	add r17, r18
+	pop r18
+	pop r28
+	pop r29
 	jmp rockInc
 
 delAbove:
@@ -421,6 +557,11 @@ delAbove:
 	st Y, r16
 	ldi r16, 0
 	st Z, r16
+	lds r16, score
+	inc r16
+	sts score, r16
+	cpi r16, 40
+	jeq winScreen
 	pop r16
 	ret
 
@@ -432,6 +573,11 @@ delRight:
 	st Y, r16
 	ldi r16, 0
 	st Z, r16
+	lds r16, score
+	inc r16
+	sts score, r16
+	cpi r16, 40
+	jeq winScreen
 	pop r16
 	ret
 

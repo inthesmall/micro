@@ -5,9 +5,11 @@
 	push r20
 	push r19
 	push r18
+	push r16
 	ldi r20, @0
 	ldi r19, @1
-	rcall writeRegister
+	call writeRegister
+	pop r16
 	pop r18
 	pop r19
 	pop r20
@@ -16,9 +18,11 @@
 	push r20
 	push r19
 	push r18
+	push r16
 	ldi r20, @0
 	mov r19, @1
 	rcall writeRegister
+	pop r16
 	pop r18
 	pop r19
 	pop r20
@@ -42,6 +46,17 @@
 	push r19
 	push r18
 	ldi r18, @0
+	rcall charOut
+	pop r18
+	pop r19
+	pop r20
+.ENDMACRO
+; WRITECHARR [0] writes contents of register [0]
+.MACRO WRITECHARR
+	push r20
+	push r19
+	push r18
+	mov r18, @0
 	rcall charOut
 	pop r18
 	pop r19
@@ -80,7 +95,7 @@
 	ldi r19, @1
 	ldi ZH, high(@0*2)
 	ldi ZL, low(@0*2)
-	rcall addChar
+	call addChar
 	pop r18
 	pop r19
 	pop r20

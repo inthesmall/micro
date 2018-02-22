@@ -4,6 +4,9 @@ lo:
 ro:
 .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
 
+extra:
+.db "Thank you for playing Space      Invaders! The developers would   like you to note that any        'unexpected' behaviours you      encounter are in fact Easter eggs (http://bit.ly/1lzoRZv)"
+
 
 .dseg
 foe1:
@@ -29,7 +32,7 @@ rockets5: .byte 1
 rockets6: .byte 1*/
 sixH: .byte 1
 sixL: .byte 1
-
+score: .byte 1
 .cseg 
 blnkRow:
 .db $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20, $20
@@ -39,6 +42,15 @@ rocket:
 
 uDed:
 .db "Congratulations! You died."
+
+uWin:
+.db "Congratulations! You won. Wasn't that a waste of time?"
+
+uScore:
+.db "Your score is: "
+
+options:
+.db "Play Game |Extra Info| Undefined "
 
 .def loLength = r18
 .def roLength = r19
