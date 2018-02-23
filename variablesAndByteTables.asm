@@ -12,17 +12,24 @@ extra:
 foe1:
 .byte 20
 
+
 foe2:
 .byte 20
+
 
 foe3:
 .byte 20
 
+
 foe4:
 .byte 20
 
+
 foePoint:
 .byte 8
+
+foeRem:
+.byte 4
 
 rockets: .byte 8
 /*rockets2: .byte 1
