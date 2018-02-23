@@ -200,7 +200,14 @@ initPpl:
 	lds r16, score
 	ldi r16, 0
 	sts score, r16
-
+	ldi r16, 10
+	ldi ZH, HIGH(2*foeRem)
+	ldi ZL, LOW(2*foeRem)
+	ldi r16, 0
+	st Z+, r16
+	st Z+, r16
+	st Z+, r16
+	st Z, r16
 	ret
 
 menu:
@@ -210,6 +217,7 @@ menu:
 	push r16
 	ldi r16, 0
 	cbr writeFlag, (1<<2)
+	cbr writeFlag, (1<<3)
 	cbr writeFLag, (1<<7)
 menuLoop:
 	rcall clrLCD
@@ -369,6 +377,8 @@ screenUpdate:
 	REGISTER $2C, $00
 	REGISTER $2D, $00
 	call row1
+	sbrc writeFlag, 3
+	jmp deathScreen
 	call esc
 	ret
 
@@ -412,8 +422,64 @@ row5:
 
 row6:
 	cpi r17, 25
-	jge deathScreen
+	cge row7
 	WRITESTRING blnkRow, blnkRowl
+	push r30
+	push r31
+	ldi ZH, HIGH(2*foeRem)
+	ldi ZL, LOW(2*foeRem)
+	ld r16, Z
+	pop r31
+	pop r30
+	ret
+
+row7:
+	cpi r17, 29
+	cge row8
+	WRITESTRING blnkRow, blnkRowl
+	push r30
+	push r31
+	ldi ZH, HIGH(2*foeRem)
+	ldi ZL, LOW(2*foeRem)
+	ld r16, Z
+	pop r31
+	pop r30
+	cpi r16, 10
+	breq pc + 2
+	sbr writeFlag, (1<<3)
+	ret
+
+row8:
+	cpi r17, 33
+	cge row9
+	WRITESTRING blnkRow, blnkRowl
+	push r30
+	push r31
+	ldi ZH, HIGH(2*foeRem)
+	ldi ZL, LOW(2*foeRem)
+	adiw Z, 2
+	ld r16, Z
+	pop r31
+	pop r30
+	cpi r16, 10
+	breq pc + 2
+	sbr writeFlag, (1<<3)
+	ret
+
+row9:
+	cpi r17, 37
+	WRITESTRING blnkRow, blnkRowl
+	push r30
+	push r31
+	ldi ZH, HIGH(2*foeRem)
+	ldi ZL, LOW(2*foeRem)
+	adiw Z, 4
+	ld r16, Z
+	pop r31
+	pop r30
+	cpi r16, 10
+	breq pc + 2
+	sbr writeFlag, (1<<3)
 	ret
 	
 esc:
@@ -496,12 +562,12 @@ killThings:
 	lsl r17
 
 killComp:
-	ldi XH, HIGH(2*foePoint)
-	ldi XL, LOW(2*foePoint)
-	add XL, r17
 	push r29
 	push r28
 	push r16
+	ldi XH, HIGH(2*foePoint)
+	ldi XL, LOW(2*foePoint)
+	add XL, r17
 	ldi r16, 0
 	adc r27, r16
 	pop r16
@@ -551,6 +617,20 @@ killComp:
 
 delAbove:
 	push r16
+	push r28
+	push r29
+	ldi YH, HIGH(2*foeRem)
+	ldi YL, LOW(2*foeRem)
+	add YL, r17
+	ldi r16, 0
+	adc r29, r16
+	ld r16, Y
+	inc r16
+	st Y, r16
+	pop r29
+	pop r28
+	pop r16
+	push r16
 	ldi r16, $06
 	st Y, r16
 	sbiw Y, 1
@@ -566,6 +646,20 @@ delAbove:
 	ret
 
 delRight:
+	push r16
+	push r28
+	push r29
+	ldi YH, HIGH(2*foeRem)
+	ldi YL, LOW(2*foeRem)
+	add YL, r17
+	ldi r16, 0
+	adc r29, r16
+	ld r16, Y
+	inc r16
+	st Y, r16
+	pop r29
+	pop r28
+	pop r16
 	push r16
 	ldi r16, $06
 	st Y, r16
