@@ -338,7 +338,7 @@ next10:
 	inc r8			; we were able to subtract 10 again, so increment r10
 	jmp loop10
 calc1:
-	mov r7,r16		;at this point r8 has 10’s, and r7 has 1’s
+	mov r7,r16		;at this point r8 has 10ï¿½s, and r7 has 1ï¿½s
 	ldi r16, $30	; Convert to hex character codes.
 	add r7, r16
 	add r8, r16
