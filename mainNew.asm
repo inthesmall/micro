@@ -481,40 +481,40 @@ writeRockets:
 	inc r17
 rockLoop:
 	inc r22
-	add r17, r22		; Finds the sum of the rocket row (>=1, counted from the bottom) and the alien row (>=1, counted from the top).
-	REGISTERR $2C, YL
+	add r17, r22		; Finds the sum of the rocket row (>=1, counted from the bottom, starting above the player) and the alien row (>=1, counted from the top).
+	REGISTERR $2C, YL	; Sets the vertical position of the cursor to the bottom row of rockets on the screen.
 	REGISTERR $2D, YH
-	ldi r26, 24
-	ld r16, Z
-	cpi r16, 0
-	jeq rockInc
-	mul r16, r26
+	ldi r26, 24			; This is how much we have to increase the horizonatal cursor by to move a disctance of one character across the screen.
+	ld r16, Z			; Loads in the position of the rocket on the row above the player (if 0, there is no rocket).
+	cpi r16, 0		
+	jeq rockInc			; If there is no rocket, move all the rockets up.
+	mul r16, r26		; If there is a rocket, multiply its offset by the cursor value.
 	mov r26, r0
 	mov r27, r1
-	REGISTERR $2A, XL
+	REGISTERR $2A, XL	; Use this to move the cursor to the correct position on the screen.
 	REGISTERR $2B, XH
-	cpi r17, 7
-	jge killThings
+	cpi r17, 7			; r17 >= 7 means there is a rocket on the same row as the aliens and we need to check for a hit.
+	jge killThings		
 rockOut:
-	WRITECCHAR $00
+	WRITECCHAR $00		; Write out any rockets.
 	WRITECCHAR $01
 
-rockInc:
-	cpi r22, 6
+rockInc:				; This is a circular buffer to move the rockets by looking at a table of pointers and incrementing where in the table we start.
+	cpi r22, 6			; See if we've dealt with all the rows, if we have, jump to the end.
 	jeq rockEnd
+	sbiw Y, $20			; Move the Y cursor up a row.
 	sbiw Y, $20
-	sbiw Y, $20
-	cpi ZL, LOW(2*rockets)
+	cpi ZL, LOW(2*rockets) ; If ZL is = LOW(2*rockets), we have reached the end of the pointer table, so jump to add5 which lets the circular buffer continue.
 	jeq add5
-	sbiw Z, 1
-	sub r17, r22
-	jmp rockLoop
+	sbiw Z, 1			; Change which row we are looking at.
+	sub r17, r22		; Change r17 back into the alien row number rather than the overlap for future comparisons.
+	jmp rockLoop		; Repeat for the next rocket row.
 add5:
-	adiw Z, 5
+	adiw Z, 5			; Moves the pointer back to the beginning of the table and changes r17 back to alien row no.
 	sub r17, r22
-	jmp rockLoop
+	jmp rockLoop		; Repeat for next rocket row.
 rockEnd:
-	sts sixL, ZL
+	sts sixL, ZL		; Stores the current address in the circular buffer so it can be written to when a rocket is fired.
 	sts sixH, ZH
 	pop r29
 	pop r28
@@ -526,47 +526,47 @@ rockEnd:
 	ret
 
 killThings:
-	cpi r17, 11
+	cpi r17, 11			; Checks if rocket is off the top of the screen (if yes go to rockOut).
 	jge rockOut
-	cp r16, loLength
+	cp r16, loLength	; Checks to see if rocket is actually in a position which could have an alien.
 	jlo rockOut
-	subi r17, 7
+	subi r17, 7			; Calculates the number of rows of overlap between the rocket and the alien block.
 	lsl r17
 
 killComp:
 	push r29
 	push r28
 	push r16
-	ldi XH, HIGH(2*foePoint)
+	ldi XH, HIGH(2*foePoint); Loads the table of pointers which correspond to the four rows of aliens
 	ldi XL, LOW(2*foePoint)
-	add XL, r17
+	add XL, r17				; Moves X to the correct set of pointers.
 	ldi r16, 0
-	adc r27, r16
+	adc r27, r16			; These lines deal with the possibility of XL overflowing when r17 is added to it.
 	pop r16
-	ld YL, X+
-	ld YH, X
+	ld YL, X+				; Loads the low byte of the alien row pointer and post increments
+	ld YH, X				; Loads the high byte of the alien row pointer.
 	push r18
-	sub r16, loLength
+	sub r16, loLength		; Rocket offset - alien offset = relative offset (how many characters in from the end of the row the rocket will hit).
 	pop r18
-	cpi r16, 20
+	cpi r16, 20				; If r16 > 20, rocket has passed the right hand end of the alien row so jump back to rockOut.
 	brlo pc+4
 	pop r28
 	pop r29
 	jmp rockOut
-	add YL, r16
+	add YL, r16				; Moves to the correct address in the alien row. (Left hand side of rocket.)
 	push r16
 	ldi r16, 0
-	adc r29, r16
-	pop r16
-	adiw Y, 1
+	adc r29, r16			
+	pop r16					
+	adiw Y, 1				; Moves to the right hand side of the rocket.
 	push r19
-	ld r19, Y
+	ld r19, Y				; Loads in the character from the alien row which is above the right half of the rocket.
 
-	cpi r19, $05
-	ceq delAbove
-	cpi r19, $04
+	cpi r19, $05			; This is the right hand side of an alien, so delete the alien above.
+	ceq delAbove			
+	cpi r19, $04			; This is the left hand side of an alien, so delete the alien to the right.
 	ceq delRight
-	cpi r19, $06
+	cpi r19, $06			; This is a blank character, so undo changes made to r17, restore registers and jump to rockOut.
 	brne pc+10
 	pop r19
 	lsr r17
@@ -591,28 +591,28 @@ delAbove:
 	push r16
 	push r28
 	push r29
-	ldi YH, HIGH(2*foeRem)
+	ldi YH, HIGH(2*foeRem)	; Loads the table of values which stores the number of kills on each row.
 	ldi YL, LOW(2*foeRem)
-	add YL, r17
+	add YL, r17				; Moves the pointer so it sits on the number of kills for the correct row.
 	ldi r16, 0
 	adc r29, r16
 	ld r16, Y
-	inc r16
+	inc r16					; Increment row kill count.
 	st Y, r16
 	pop r29
 	pop r28
 	pop r16
 	push r16
-	ldi r16, $06
-	st Y, r16
-	sbiw Y, 1
-	st Y, r16
+	ldi r16, $06			
+	st Y, r16				; Change the right hand side of the alien to a blank space.
+	sbiw Y, 1				; Look at the left hand side of the alien.
+	st Y, r16				; Change the left hand side of the alien to a blank space.
 	ldi r16, 0
-	st Z, r16
-	lds r16, score
+	st Z, r16				; Delete the rocket.
+	lds r16, score			; Update the score.
 	inc r16
 	sts score, r16
-	cpi r16, 40
+	cpi r16, 40				; If score = 40, all aliens are dead so you win.
 	jeq winScreen
 	pop r16
 	ret
@@ -621,43 +621,43 @@ delRight:
 	push r16
 	push r28
 	push r29
-	ldi YH, HIGH(2*foeRem)
+	ldi YH, HIGH(2*foeRem)	; Loads the table of values which stores the number of kills on each row.
 	ldi YL, LOW(2*foeRem)
-	add YL, r17
+	add YL, r17				; Moves the pointer so it sits on the number of kills for the correct row.
 	ldi r16, 0
 	adc r29, r16
 	ld r16, Y
-	inc r16
-	st Y, r16
+	inc r16					; Increment row kill count.
+	st Y, r16				
 	pop r29
 	pop r28
 	pop r16
 	push r16
-	ldi r16, $06
+	ldi r16, $06			; Change the left hand side of the alien to a blank space.
 	st Y, r16
 	adiw Y, 1
-	st Y, r16
+	st Y, r16				; Change the right hand side of the alien to a blank space.
 	ldi r16, 0
-	st Z, r16
-	lds r16, score
+	st Z, r16				; Delete the rocket.
+	lds r16, score			; Update the score.
 	inc r16
 	sts score, r16
 	cpi r16, 40
-	jeq winScreen
+	jeq winScreen			; If score = 40, all aliens are dead so you win.
 	pop r16
 	ret
 
 	
 
 foeRow:
-	push r17
+	push r17				; This code initialises the byte tables for the rows of aliens.
 foej:
-	ldi r17, $04
-	st Z+, r17
-	ldi r17, $05
-	st Z+, r17
+	ldi r17, $04			
+	st Z+, r17				; Starts from the beginning of the selected row, makes the first character a $04 and post increments.
+	ldi r17, $05		
+	st Z+, r17				; Makes the next character a $05 and post increments.
 	subi r16, 2
-	cpi r16, 0
+	cpi r16, 0				; Loops until all the characters in the row are initialised.
 	jne foej
 	pop r17
 	ret
@@ -665,21 +665,21 @@ foej:
 rocketRows:
 	push r16
 	push r17
-	ldi r16, 6
+	ldi r16, 6				; This code initialises all the elements in the rocket table to 0 so we start with no rockets.
 rowj:
 	ldi r17, $00
-	st Z+, r17
+	st Z+, r17			
 	subi r16, 1
-	cpi r16, 0
+	cpi r16, 0				; Loops until all 6 rows are 0.
 	jne rowj
 	pop r17
 	pop r16
 	ret
 
 writePlayer:
-	REGISTER $2C, $80
+	REGISTER $2C, $80		; Sets the cursor to the bottom row of the screen.
 	REGISTER $2D, $01
-	WRITESTRING blnkRow, playerPos
+	WRITESTRING blnkRow, playerPos	; Writes blank spaces followed by the player character.
 	WRITECCHAR $02
 	WRITECCHAR $03
 	ret

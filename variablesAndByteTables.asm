@@ -32,11 +32,6 @@ foeRem:
 .byte 4
 
 rockets: .byte 8
-/*rockets2: .byte 1
-rockets3: .byte 1
-rockets4: .byte 1
-rockets5: .byte 1
-rockets6: .byte 1*/
 sixH: .byte 1
 sixL: .byte 1
 score: .byte 1
