@@ -75,6 +75,11 @@ Init:
 	out OCR0,r16		; The counter will go every
                            ; n*256*125 nsec
 ;##### Timer1 Setup Code #####
+	ldi r16, 0 ; Disable all output comparisons
+	out TCCR1A, r16 ; And set to normal mode
+	ldi r16, 0b11000001 ; Enable input capture filtering, trigger on leading edge
+	out TCCR1B, r16 ; Set clock prescaler to 1
+
 
 ;##### Interrupts setup #####
 	ldi r16, 0b00100010		; OCIE0
