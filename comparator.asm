@@ -54,6 +54,24 @@ timeout:
     ldi r16, $FF ; set status
     reti
 
+moveParser:
+    cpi r21, $10
+    brge timedOut
+    cpi r21, $04
+    brlo timeLeft
+    cpi r21, $08
+    brge timeRight
+timedOut:
+    ldi shift, 0 ; This gets hit upon timeout or if in middle position
+    ret
+timeLeft:
+    ldi shift, $77 ; Legacy encoding for left from button pad
+    ret
+timeRight:
+    ldi shift, $B7 ; Legacy encoding for right from button pad
+    ret
+
+    
 
 200cycles:
     push r16

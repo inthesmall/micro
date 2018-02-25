@@ -30,7 +30,6 @@ play:
 	rjmp Main
 
 ;##### Interrupt vector code #####
-
 interruptVector:	; Is called when Timer0 triggers (approx every 0.03s).
 	in r4, SREG		; Save the status register so it doesn't get broken.
  	push r16
@@ -38,9 +37,9 @@ interruptVector:	; Is called when Timer0 triggers (approx every 0.03s).
 	push r21
 	rcall pulse
 inputPoll:
-	cpi r16, $FF
-	brne inputPoll
-	rcall moveParser
+	cpi r16, $FF ; Check to see if the analogue comparator has been triggered
+	brne inputPoll ; Will only spend a maxium of 0.0005 seconds here since there is a timeout
+	rcall moveParser ; Interprets the result
 	pop r21
 	pop r20
 	pop r16
