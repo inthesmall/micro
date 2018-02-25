@@ -89,9 +89,9 @@ Init:
 	ldi r16, 0b11000000 ; Enable input capture filtering, trigger on leading edge
 	out TCCR1B, r16 ; No clock input, timer stopped
 	ldi r16, $10 ; Set the overflow value to 0x1000 ~ 0.0005ms
-	out r16, OCR1AH
+	out OCR1AH, r16
 	ldi r16, 0
-	out OCR1AL
+	out OCR1AL, r16
 
 
 ;##### Interrupts setup #####
