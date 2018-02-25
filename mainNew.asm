@@ -693,3 +693,4 @@ writePlayer:
 .INCLUDE "LCDdriver.asm"
 .INCLUDE "variablesAndByteTables.asm"
 .INCLUDE "char.asm"
+.INCLUDE "comparator.asm"
