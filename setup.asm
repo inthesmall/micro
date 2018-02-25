@@ -100,6 +100,10 @@ Init:
 
 	sei
 
+jmp setupSkip
+.INCLUDE "comparator.asm"
+setupSkip:
+
 ;##### Macros #####
 ; jump to [0] if register equal to given value.
 .MACRO jeq

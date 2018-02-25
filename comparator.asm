@@ -1,10 +1,12 @@
+#ifndef comparator
+#define comparator
 .MACRO SENDPULSE
     ldi r16, 1
     out PORTA, r16
-    rcall 200cycles
+    rcall _200cycles
     ldi r16, 0
     out PORTA, r16
-    rcall 200cycles
+    rcall _200cycles
 .ENDMACRO
 pulse:
     ; should get called in the timer 0 interupt
@@ -73,11 +75,12 @@ timeRight:
 
     
 
-200cycles:
+_200cycles:
     push r16
     ldi r16, 100
-200cyclesjump:
+_200cyclesjump:
     dec r16
-    brne 200cyclesjump
+    brne _200cyclesjump
     pop r16
     ret
+#endif
