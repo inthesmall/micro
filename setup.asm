@@ -63,7 +63,16 @@ Init:
    
 ;##### Comparator Setup Code #####
 	;CHECKME
-	ldi r16, $F0 ;0b00001111 ; Comparator disabled, Input Capture enabled
+	; I think this - Ethan
+	; Disable comparator
+	; Disable bandgap
+	; Disable output to pin
+	; Don't touch interupt flag
+	; Disable interupt
+	; Enable input capture
+	; These two don't matter, but may as well set them to rising edge in case
+		; we use interupts later
+	ldi r16, 0b10000111 ;$F0 ;0b00001111 ; Comparator disabled, Input Capture enabled
 	out ACSR, r16		; Comparator Settings
 
 ;##### Timer0 Setup Code #####
