@@ -23,7 +23,7 @@
 		nop			; Vector Addresses are 2 words apart
 		jmp inputs			; Timer 1 Capture  Vector 
 		nop			; Vector Addresses are 2 words apart
-		reti			; Timer1 CompareA  Vector 
+		jmp timeout			; Timer1 CompareA  Vector 
 		nop			; Vector Addresses are 2 words apart
 		reti			; Timer 1 CompareB  Vector 
 		nop			; Timer 1 Overflow  Vector 
@@ -86,13 +86,17 @@ Init:
 ;##### Timer1 Setup Code #####
 	ldi r16, 0 ; Disable all output comparisons
 	out TCCR1A, r16 ; And set to normal mode
-	ldi r16, 0b11000001 ; Enable input capture filtering, trigger on leading edge
-	out TCCR1B, r16 ; Set clock prescaler to 1
+	ldi r16, 0b11000000 ; Enable input capture filtering, trigger on leading edge
+	out TCCR1B, r16 ; No clock input, timer stopped
+	ldi r16, $10 ; Set the overflow value to 0x1000 ~ 0.0005ms
+	out r16, OCR1AH
+	ldi r16, 0
+	out OCR1AL
 
 
 ;##### Interrupts setup #####
-	ldi r16, 0b00100010		; OCIE0
-	out TIMSK, r16		; T0: Output compare match 
+	ldi r16, 0b00101010		; Enable Timer 1, Timer 0 output compare match
+	out TIMSK, r16		; Enable timer one input capture
 
 	sei
 

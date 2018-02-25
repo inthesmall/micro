@@ -33,12 +33,17 @@ play:
 
 interruptVector:	; Is called when Timer0 triggers (approx every 0.03s).
 	in r4, SREG		; Save the status register so it doesn't get broken.
- 	push r18		; Save registers which are needed by interruptVector and other program code.
-	push r23
-	rcall buttonRead; Read the user inputs.
-	mov shift, r18	; Save the inputs to a dedicated register.
-	pop r23
-	pop r18
+ 	push r16
+	push r20
+	push r21
+	rcall pulse
+inputPoll:
+	cpi r16, $FF
+	brne inputPoll
+	rcall moveParser
+	pop r21
+	pop r20
+	pop r16
 	cpi compFlag, 4	; If compFlag = 4, we are allowed to interpret the inputs (jump to movLoop), otherwise increment compFlag and exit the loop.
 	breq movLoop
 	inc compFlag
