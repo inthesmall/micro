@@ -11,7 +11,8 @@
 .ENDMACRO
 pulse:
     ; should get called in the timer 0 interupt
-    push r16
+    ldi r16, 0
+	push r16
     ;start timer
     in r16, TCCR1B
     sbr r16, (1<<0) ; set the clock prescaler to 1
@@ -24,11 +25,14 @@ pulse:
     ;start analogue comparator
     ldi r16, 0b00000111
     out ACSR, r16
+	;ldi r16, 0b00101010		; Enable Timer 1, Timer 0 output compare match
+	;out TIMSK, r16		; Enable timer one input capture
     pop r16
     ret
 
 
 inputs:
+	in r4, SREG
     in r20, ICR1L ; Read captured value
     in r21, ICR1H
     ldi r16, 0b10000111
@@ -39,10 +43,14 @@ inputs:
     ldi r16, 0
     out TCNT1H, r16
     out TCNT1L, r16 ; clear timer value
+	;ldi r16, 0b00000010		
+	;out TIMSK, r16		
     ldi r16, $FF ; set status
+	out SREG, r4
     reti
 
 timeout:
+	in r4, SREG	
     ; called by output compare after 0.0005s
     ldi r20, $00
     ldi r21, $10
@@ -54,7 +62,10 @@ timeout:
     ldi r16, 0
     out TCNT1H, r16
     out TCNT1L, r16 ; clear timer value
+	;ldi r16, 0b00000010		
+	;out TIMSK, r16	
     ldi r16, $FF ; set status
+	out SREG, r4
     reti
 
 moveParser:
@@ -64,11 +75,7 @@ moveParser:
     brlo timeLeft
     cpi r21, $08
     brge timeRight
-	push r16
-	in r16, PINE
-	sbrc r16, 7
-	jmp timeShoot
-	pop r16
+
 timedOut:
     ldi shift, 0 ; This gets hit upon timeout or if in middle position
     ret
@@ -78,10 +85,7 @@ timeLeft:
 timeRight:
     ldi shift, $B7 ; Legacy encoding for right from button pad
     ret
-timeShoot:
-	ldi shift, $D7 ; Legacy encoding for shoot from button pad
-	pop r16
-	ret
+
     
 
 _200cycles:

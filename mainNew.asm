@@ -20,12 +20,12 @@ ldi compFlag, 0		; This flag sets how many times the interrupt fires before bein
 
 ;##### The start of the program #####
 Main:
-	rcall initPpl	; Set-up all the rewritable byte tables.
+/*	rcall initPpl	; Set-up all the rewritable byte tables.
 	rcall clrLCD	; Clear the LCD before jumping to menu.
-	rcall menu		; Load the menu screen.
+	rcall menu*/	; Load the menu screen.
 play:
-	ldi r17, $00	; r17 = 'laps' of screen - needs to start at 0. Counts how many times aliens move from the right of the screen to the left and back again.
-	rcall foeLoop	; This actually starts the game - controls aliens and calls the loop to update screen with aliens/player/rockets.
+	/*ldi r17, $00	; r17 = 'laps' of screen - needs to start at 0. Counts how many times aliens move from the right of the screen to the left and back again.
+	rcall foeLoop*/	; This actually starts the game - controls aliens and calls the loop to update screen with aliens/player/rockets.
 
 	rjmp Main
 
@@ -40,11 +40,15 @@ inputPoll:
 	cpi r16, $FF ; Check to see if the analogue comparator has been triggered
 	brne inputPoll ; Will only spend a maxium of 0.0005 seconds here since there is a timeout
 	rcall moveParser ; Interprets the result
+	in r16, PINE
+	sbrs r16, 7
+	ldi shift, $D7 ; Legacy encoding for shoot from button pad
 	pop r21
 	pop r20
 	pop r16
 	cpi compFlag, 4	; If compFlag = 4, we are allowed to interpret the inputs (jump to movLoop), otherwise increment compFlag and exit the loop.
-	breq movLoop
+;	breq movLoop
+nop
 	inc compFlag
 	out SREG, r4	; Restore the SREG.
 	reti
@@ -689,7 +693,7 @@ writePlayer:
 	ret
 
 .INCLUDE "delayRoutines.asm"
-.INCLUDE "buttons.asm"
+;.INCLUDE "buttons.asm"
 .INCLUDE "LCDdriver.asm"
 .INCLUDE "variablesAndByteTables.asm"
 .INCLUDE "char.asm"

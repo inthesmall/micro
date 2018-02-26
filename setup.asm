@@ -102,7 +102,7 @@ Init:
 
 
 ;##### Interrupts setup #####
-	ldi r16, 0b00101010		; Enable Timer 1, Timer 0 output compare match
+	ldi r16, 0b00111010		; Enable Timer 1, Timer 0 output compare match
 	out TIMSK, r16		; Enable timer one input capture
 
 	sei
