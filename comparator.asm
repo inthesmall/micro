@@ -63,6 +63,11 @@ moveParser:
     brlo timeLeft
     cpi r21, $08
     brge timeRight
+	push r16
+	in r16, PINE
+	sbrc 7
+	jmp timeShoot
+	pop r16
 timedOut:
     ldi shift, 0 ; This gets hit upon timeout or if in middle position
     ret
@@ -72,7 +77,10 @@ timeLeft:
 timeRight:
     ldi shift, $B7 ; Legacy encoding for right from button pad
     ret
-
+timeShoot:
+	ldi shift, $D7 ; Legacy encoding for shoot from button pad
+	pop r16
+	ret
     
 
 _200cycles:
