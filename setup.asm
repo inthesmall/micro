@@ -83,6 +83,13 @@ Init:
 	ldi r16,$FF			; load OCR0 with n=1024
 	out OCR0,r16		; The counter will go every
                            ; n*256*125 nsec
+
+;##### PORTE setup code #####
+	ldi r16, 0b01110011
+	out PORTE, r16
+	ldi r16, 0b10000000
+	out DDRE, r16
+
 ;##### Timer1 Setup Code #####
 	ldi r16, 0 ; Disable all output comparisons
 	out TCCR1A, r16 ; And set to normal mode
