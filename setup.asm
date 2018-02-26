@@ -21,7 +21,7 @@
 		nop			; Vector Addresses are 2 words apart
 		reti			; Timer 2 Overflow Vector 
 		nop			; Vector Addresses are 2 words apart
-		jmp inputs			; Timer 1 Capture  Vector 
+		reti			; Timer 1 Capture  Vector 
 		nop			; Vector Addresses are 2 words apart
 		reti			; Timer1 CompareA  Vector 
 		nop			; Vector Addresses are 2 words apart
@@ -42,9 +42,9 @@
 		reti			; ADC Conversion Complete Vector 
 		nop			; Vector Addresses are 2 words apart
 		reti			; EEPROM Ready Vector 
-		nop	
-		reti		; Vector Addresses are 2 words apart
-		;jmp analogComparator			; Analog Comparator  Vector 
+		nop			; Vector Addresses are 2 words apart
+		reti			; Analog Comparator  Vector
+					 
 
 .org		$0080			; start address well above interrupt table
 
@@ -63,7 +63,7 @@ Init:
    
 ;##### Comparator Setup Code #####
 	;CHECKME
-	ldi r16, $F0 ;0b00001111 ; Comparator disabled, Input Capture enabled
+	ldi r16, $80 ; Comparator disabled, Input Capture disabled
 	out ACSR, r16		; Comparator Settings
 
 ;##### Timer0 Setup Code #####
@@ -74,10 +74,9 @@ Init:
 	ldi r16,$FF			; load OCR0 with n=1024
 	out OCR0,r16		; The counter will go every
                            ; n*256*125 nsec
-;##### Timer1 Setup Code #####
 
 ;##### Interrupts setup #####
-	ldi r16, 0b00100010		; OCIE0
+	ldi r16, $02		; OCIE0
 	out TIMSK, r16		; T0: Output compare match 
 
 	sei
