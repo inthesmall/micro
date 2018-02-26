@@ -66,7 +66,7 @@ moveParser:
     brge timeRight
 	push r16
 	in r16, PINE
-	sbrc 7
+	sbrc r16, 7
 	jmp timeShoot
 	pop r16
 timedOut:
