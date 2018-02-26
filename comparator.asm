@@ -1,11 +1,12 @@
 #ifndef comparator
 #define comparator
 .MACRO SENDPULSE
-    ldi r16, 1
-    out PORTA, r16
+    in r16, PORTE
+    sbr r16, (1<<6)
+    out PORTE, r16
     rcall _200cycles
-    ldi r16, 0
-    out PORTA, r16
+    cbr r16, (1<<6)
+    out PORTE, r16
     rcall _200cycles
 .ENDMACRO
 pulse:
