@@ -19,14 +19,14 @@
 		nop			; Vector Addresses are 2 words apart
 		reti			; Timer 2 Compare Vector 
 		nop			; Vector Addresses are 2 words apart
-		reti			; Timer 2 Overflow Vector 
-		nop			; Vector Addresses are 2 words apart
+
 		jmp inputs			; Timer 1 Capture  Vector 
-		nop			; Vector Addresses are 2 words apart
+					; Vector Addresses are 2 words apart
 		jmp timeout			; Timer1 CompareA  Vector 
 		nop			; Vector Addresses are 2 words apart
 		reti			; Timer 1 CompareB  Vector 
-		nop			; Timer 1 Overflow  Vector 
+		nop	
+		nop		; Timer 1 Overflow  Vector 
 		jmp interruptVector		; Timer 0 Compare  Vector 
 		nop			; Vector Addresses are 2 words apart
 		reti			; Timer 0 Overflow interrupt  Vector 
@@ -86,9 +86,9 @@ Init:
 
 ;##### PORTE setup code #####
 	ldi r16, 0b01110011
-	out PORTE, r16
-	ldi r16, 0b10000000
 	out DDRE, r16
+	ldi r16, 0b10000000
+	out PORTE, r16
 
 ;##### Timer1 Setup Code #####
 	ldi r16, 0 ; Disable all output comparisons
