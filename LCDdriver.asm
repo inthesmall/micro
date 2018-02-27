@@ -47,6 +47,7 @@ clrLCDLoop:
 
 
 setupLCD:
+	push r16
 	ldi r16,0b00010111 ; Pin 4 as output for reset
 	out DDRB, r16 ; SS*, SCK, MOSI outputs
 	ldi r16, 0
@@ -109,7 +110,7 @@ setupLCD:
 	REGISTER $8A, $8A
 	REGISTER $8B, $FF
 
-	
+	pop r16
 	ret
 
 

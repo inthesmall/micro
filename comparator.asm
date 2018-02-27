@@ -25,14 +25,22 @@ pulse:
     ;start analogue comparator
     ldi r16, 0b00000111
     out ACSR, r16
-	;ldi r16, 0b00101010		; Enable Timer 1, Timer 0 output compare match
-	;out TIMSK, r16		; Enable timer one input capture
+	ldi r16, 0b00110000
+	out TIMSK, r16
     pop r16
     ret
 
 
 inputs:
 	in r4, SREG
+	pop r16
+	pop r16
+	pop r16
+	cli
+	in r16, TIMSK
+	cbr r16, (1<<5)
+	cbr r16, (1<<4)
+	out TIMSK, r16
     in r20, ICR1L ; Read captured value
     in r21, ICR1H
     ldi r16, 0b10000111
@@ -49,11 +57,16 @@ inputs:
 	out SREG, r4
     reti
 
+
 timeout:
-	in r4, SREG	
+	cli
+	in r16, TIMSK
+	cbr r16, (1<<5)
+	cbr r16, (1<<4)
+	out TIMSK, r16
     ; called by output compare after 0.0005s
     ldi r20, $00
-    ldi r21, $10
+    ldi r21, $40
     ldi r16, 0b10000111
     out ACSR, r16 ; Stop analogue comparator
     in r16, TCCR1B
@@ -66,14 +79,15 @@ timeout:
 	;out TIMSK, r16	
     ldi r16, $FF ; set status
 	out SREG, r4
+	
     reti
 
 moveParser:
-    cpi r21, $10
+    cpi r21, $40
     brge timedOut
-    cpi r21, $04
+    cpi r21, $10
     brlo timeLeft
-    cpi r21, $08
+    cpi r21, $20
     brge timeRight
 
 timedOut:

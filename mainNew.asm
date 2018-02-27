@@ -2,7 +2,7 @@
 .INCLUDE "LCDdriver.inc"
 
 ;###### LCD setup #####
-
+push r16
 rcall setupLCD		; One-time LCD setup.
 CREATECHAR rl , $00	; Creates the custom characters each time the program is loaded.
 CREATECHAR rr, $01	; rl/rr = rocket left/right, pl/pr = player left/right, al/ar = alien left/right, bl = custom blank character.
@@ -17,12 +17,16 @@ rcall clrLCD		; clear LCD in preparation for programme start.
 
 ldi writeFlag, 0	; This flag will ensure our interrupt doesn't overwrite anything if it is triggered during a screen update.
 ldi compFlag, 0		; This flag sets how many times the interrupt fires before being allowed to read the inputs.
-
+pop r16
+sei
 ;##### The start of the program #####
 Main:
-/*	rcall initPpl	; Set-up all the rewritable byte tables.
+
+	rcall initPpl	; Set-up all the rewritable byte tables.
+	
 	rcall clrLCD	; Clear the LCD before jumping to menu.
-	rcall menu*/	; Load the menu screen.
+	
+	rcall menu		; Load the menu screen.
 play:
 	/*ldi r17, $00	; r17 = 'laps' of screen - needs to start at 0. Counts how many times aliens move from the right of the screen to the left and back again.
 	rcall foeLoop*/	; This actually starts the game - controls aliens and calls the loop to update screen with aliens/player/rockets.
@@ -31,14 +35,21 @@ play:
 
 ;##### Interrupt vector code #####
 interruptVector:	; Is called when Timer0 triggers (approx every 0.03s).
+	push r16
+	ldi r16, 0b00000000
+	out TIMSK, r16
 	in r4, SREG		; Save the status register so it doesn't get broken.
- 	push r16
 	push r20
 	push r21
+	ldi r16, 0
 	rcall pulse
 inputPoll:
+	sei
 	cpi r16, $FF ; Check to see if the analogue comparator has been triggered
 	brne inputPoll ; Will only spend a maxium of 0.0005 seconds here since there is a timeout
+	cli
+	ldi r16, 0b00110010		; Enable Timer 1, Timer 0 output compare match
+	out TIMSK, r16		; Enable timer one input capture
 	rcall moveParser ; Interprets the result
 	in r16, PINE
 	sbrs r16, 7
@@ -67,6 +78,10 @@ movLoop:
 	ldi compFlag, 0		; Reset compFlag for future inputs.
 	rcall playerLoop	; Interpret inputs.
 	out SREG, r4
+	push r16
+	ldi r16, 0b00110010
+	out TIMSK, r16
+	pop r16
 	reti
 
 playerLoop:

@@ -95,17 +95,18 @@ Init:
 	out TCCR1A, r16 ; And set to normal mode
 	ldi r16, 0b11000000 ; Enable input capture filtering, trigger on leading edge
 	out TCCR1B, r16 ; No clock input, timer stopped
-	ldi r16, $10 ; Set the overflow value to 0x1000 ~ 0.0005ms
+	ldi r16, $40 ; Set the overflow value to 0x1000 ~ 0.0005ms
 	out OCR1AH, r16
 	ldi r16, 0
 	out OCR1AL, r16
 
 
 ;##### Interrupts setup #####
-	ldi r16, 0b00111010		; Enable Timer 1, Timer 0 output compare match
+	ldi r16, 0b00110010		; Enable Timer 1, Timer 0 output compare match
 	out TIMSK, r16		; Enable timer one input capture
 
-	sei
+	;sei
+	cli
 
 jmp setupSkip
 .INCLUDE "comparator.asm"
