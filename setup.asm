@@ -59,12 +59,7 @@ Init:
 ;###### RAMPZ Setup Code #####
 ; Lower memory page arithmetic
 	ldi  r16, $00		; 1 = EPLM acts on upper 64K
-	out RAMPZ, r16		; 0 = EPLM acts on lower 64K
-   
-;##### Comparator Setup Code #####
-	;CHECKME
-	ldi r16, $80 ; Comparator disabled, Input Capture disabled
-	out ACSR, r16		; Comparator Settings
+	out RAMPZ, r16		; 0 = EPLM acts on lower 64K   
 
 ;##### Timer0 Setup Code #####
 	ldi r16,$0F			; Timer 0 Setup
