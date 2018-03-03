@@ -1,5 +1,5 @@
 
-;##### General delay routines ##### [REFME]
+;##### General delay routines ##### ; Adapted from code by C. Foudas, Imperial College, High Energy Physics division
 DEL15ms:
 	push r26
 	push r27
