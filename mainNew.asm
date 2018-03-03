@@ -203,7 +203,7 @@ initPpl:
 
 ;##### Menu #####
 
-; This prints the menu text to the screen the calls the parts of the main game required
+; This prints the menu text to the screen, calls the parts of the main game required
 ; to make the 'shoot to select' interface work. The menu implements three options:
 ; Start Game - run as normal
 ; Extra Info - writes out a wall of text, pauses, then returns you to the menu
