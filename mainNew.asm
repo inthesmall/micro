@@ -128,7 +128,13 @@ noNastyHack:
 	ret
 	
 
-;##### Loops #####
+;##### initialization of data arrays and variables #####
+
+; This creates tables full of aliens, empty tables for rockets,
+; and sets a couple of other variables to starting values.
+; It also creates tables of pointers which are used later.
+; This is hit every time a new game is started
+
 initPpl:
 	ldi foeLength, 20		; Sets length of row of aliens.
 	ldi loLength, 13		; Sets left offset to maxiumum so row starts at the far right of the screen.
@@ -194,6 +200,15 @@ initPpl:
 	st Z+, r16
 	st Z, r16
 	ret
+
+;##### Menu #####
+
+; This prints the menu text to the screen the calls the parts of the main game required
+; to make the 'shoot to select' interface work. The menu implements three options:
+; Start Game - run as normal
+; Extra Info - writes out a wall of text, pauses, then returns you to the menu
+; Undefined - enter a fomerly debugging mode where everything runs around 4-5 times faster
+
 
 menu:
 	push r16
@@ -297,9 +312,17 @@ winScreen:
 	pop r16
 	rjmp Main				; Restarts the program.
 
+
+;#### Main Game ####
+
+; Below this point is where the game spends most time when in normal program flow.
+; This code makes the aliens go side to side and move down when the time is right.
+
 foeLoop:
 	inc r17					; Increment the lap counter (do this twice so the aliens only do 2 laps not 4).
-	inc r17
+	inc r17					; This was a late modification to the mechanics, which is why it was implemented like this
+
+;Go from right to left across the scree
 run1:
 	rcall screenUpdate		; Updates the screen.
 	dec loLength			; Decrements the left offset and increments the right offset to move the aliens to the left.
@@ -309,9 +332,9 @@ run1:
 
 	rjmp run1				; Loops after every movement to redraw screen and carry on.
 
-
+;Go from left to right across the screen
 reverse:
-	rcall screenUpdate		; This does the same as foeLoop but with loLength and roLength reversed.
+	rcall screenUpdate		; This does the same as run1 but with loLength and roLength reversed.
 	dec roLength
 	inc loLength
 	cpi roLength, $00
@@ -321,7 +344,7 @@ reverse:
 
 
 ;##### General routines #####
-scorePrint:			; This is a hex-decimal converter, only works on numbers <= 99. [REFME]
+scorePrint:			; This is a hex->decimal converter, only works on numbers <= 99. [REFME]
 	push r16
 	push r17
 	clr r7
@@ -348,7 +371,20 @@ calc1:
 	pop r17
 	ret
 
-	
+;#### Screen Draw ####
+
+; Most of the heavy lifting is actually done in the screen drawing section.
+; Since we need to read in the entire state of the system here, it made sense to
+; perform the checking and logic at this stage as well
+
+; This section is a cascade, whereby execution falls through to the loweest subroutine
+; it is allowed to hit, then works back up the chain, drawing blank rows and rows of aliens
+; from the top of the screen downwards.
+; For example before the aliens have moved down at all, this will only get to row1 and draw the
+; bottommost row of aliens on the top row of the screen, then return. 
+; When the aliens have moved down to the bottom row, this wil draw (from the top of the screen)
+; two blank rows, followed by four rows of aliens
+
 screenUpdate:			; Draws the game screens.
 	rcall clrLCD
 	REGISTER $2A, $00	; Set the cursor to the top left.
@@ -455,10 +491,10 @@ row9:
 	ret
 	
 esc:
-	rcall writePlayer	; This loop runs when all the alien rows have been drawn. The player and rockets are written here.
+	rcall writePlayer	; This runs when all the alien rows have been drawn. The player and rockets are written here.
 	rcall writeRockets
 	cbr writeFlag, (1<<0)
-	rcall BigDel		; Another gap for the interrupt to run in.
+	rcall BigDel		; This delay defines the framerate and gamespeed
 	sbr writeFlag, (1<<0)
 	ret
 
