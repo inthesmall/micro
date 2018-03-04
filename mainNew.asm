@@ -344,7 +344,7 @@ reverse:
 
 
 ;##### General routines #####
-scorePrint:			; This is a hex-decimal converter, only works on numbers <= 99. [REFME]
+scorePrint:			; This is a hex-decimal converter, only works on numbers <= 99. Code adapted from J. Nash, Imperial College. From 'ExtraExamples' presentation on the Microprocessors course.
 	push r16
 	push r17
 	clr r7

@@ -1,4 +1,4 @@
- 		jmp Init ;[REFME]
+ 		jmp Init 
 		reti		                 
 		nop			; Vector Addresses are 2 words apart
 		reti			; External 0 interrupt  Vector 
@@ -62,8 +62,6 @@ Init:
 	out RAMPZ, r16		; 0 = EPLM acts on lower 64K
    
 ;##### Comparator Setup Code #####
-	;CHECKME
-	; I think this - Ethan
 	; Disable comparator
 	; Disable bandgap
 	; Disable output to pin
@@ -112,7 +110,7 @@ jmp setupSkip
 .INCLUDE "comparator.asm"
 setupSkip:
 
-;##### Macros #####
+;##### Macros ##### Adapted from code on EmbedDev.net: https://embdev.net/articles/Getting_rid_of_%22Relative_branch_out_of_reach%22_errors
 ; jump to [0] if register equal to given value.
 .MACRO jeq
    brne pc+2
