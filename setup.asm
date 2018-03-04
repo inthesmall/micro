@@ -70,12 +70,6 @@ Init:
 	out OCR0,r16		; The counter will go every
                            ; n*256*125 nsec
 
-;##### PORTE setup code #####
-	ldi r16, 0b01110011
-	out PORTE, r16
-	ldi r16, 0b10000000
-	out DDRE, r16
-
 ;##### Interrupts setup #####
 	ldi r16, $02		; OCIE0
 	out TIMSK, r16		; T0: Output compare match 
