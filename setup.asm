@@ -82,7 +82,7 @@ Init:
 
 	sei
 
-;##### Macros ##### Adapted from code on EmbedDev.net: https://embdev.net/articles/Getting_rid_of_%22Relative_branch_out_of_reach%22_errors
+;##### Macros ##### Adapted from code on EmbDev.net: https://embdev.net/articles/Getting_rid_of_%22Relative_branch_out_of_reach%22_errors
 ; jump to [0] if register equal to given value.
 .MACRO jeq
    brne pc+2
