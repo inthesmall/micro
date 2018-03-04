@@ -1,4 +1,4 @@
- 		jmp Init ;[REFME]
+ 		jmp Init
 		reti		                 
 		nop			; Vector Addresses are 2 words apart
 		reti			; External 0 interrupt  Vector 
